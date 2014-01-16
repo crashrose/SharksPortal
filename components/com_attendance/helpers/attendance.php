@@ -185,6 +185,7 @@ class attendanceHelper {
 				$db->setQuery($query);
 				$results = $db->loadObjectList();
 //var_dump($results);
-				return $results[1]['count'];
+// 				$items[0]->filtered_val
+				return $results[0]->count;
 				}
 }

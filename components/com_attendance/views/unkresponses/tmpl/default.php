@@ -149,7 +149,11 @@ The filtering options at the top of the page allow you to select the events you 
 				</td>
 </tr>
 <tr><td colspan="2">
-You currently have<?php echo AttendanceHelper::outstanding_for_user();?> outstanding responses.
+    <?php
+    $out_text = AttendanceHelper::outstanding_for_user();
+    $out_text = $out_text>0?'<font color="red">'.$out_text.'</font>':$out_text;
+    ?>
+You currently have <?php echo $out_text;?> outstanding responses.
 </td></tr></table>
 <table class="attendance">
 
