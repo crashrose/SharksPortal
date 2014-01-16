@@ -12,10 +12,9 @@ $event_month = JFormHelper::loadFieldType ( 'eventMonths', false );
 
 $event_monthOptions = $event_month->getOptions (); // works only if you set your field getOptions on public!!
 
-                                                  
+
 
 // Load the tooltip behavior.
-
 JHtml::_ ( 'behavior.framework' );
 
 JHtml::_ ( 'behavior.tooltip' );
@@ -39,13 +38,18 @@ JHtml::script(Juri::base() . '/components/com_attendance/views/unkresponses/subm
 $document->addScriptDeclaration('
 
 function rsvp_all_yes(){
-
-el_collection = document.getElementsByClassName("att_yes_radio")
-
-for (c=0;c<el_collection.length;c++)
-
-el_collection[c].checked=true
-
+yes_rads = document.getElementsByClassName("att_yes_radio")
+for (c=0;c<yes_rads.length;c++){
+yes_rads[c].checked=true
+}
+rsvp_fields = document.getElementsByClassName("att_yesable")
+for (c=0;c<rsvp_fields.length;c++){
+rsvp_fields[c].removeClass(\'required\')
+}
+rsvp_divs = document.getElementsByClassName("att_yesable_div")
+for (c=0;c<rsvp_divs.length;c++){
+rsvp_divs[c].hide()
+}
 }
 
 
@@ -102,7 +106,7 @@ Filter by:
 
 				value="<?php echo $this->escape($this->searchterms); ?>"
 
-				title="<?php echo JText::_('Search by location, etc.'); ?>" 
+				title="<?php echo JText::_('Search by location, etc.'); ?>"
 
 			/>
 
@@ -130,9 +134,9 @@ Filter by:
 
                 </select><BR><BR></p></td>
 				<td>
-				<p style="font-weight:bold;">INSTRUCTIONS:</p><p style="font-size:.8em;">Below is a list of practices/events that you need to RSVP to.  You can select Yes, No, or Unsure for each event. 
+				<p style="font-weight:bold;">INSTRUCTIONS:</p><p style="font-size:.8em;">Below is a list of practices/events that you need to RSVP to.  You can select Yes, No, or Unsure for each event.
 <BR>
-<u>If you select No</u>, you MUST enter a reason and an explanation for why you will be unable to attend. You will not be able to submit a No response without both a reason and an explanation. 
+<u>If you select No</u>, you MUST enter a reason and an explanation for why you will be unable to attend. You will not be able to submit a No response without both a reason and an explanation.
 <BR>
 <u>If you select Unsure</u>, you can enter a reason and explanation, but they are not mandatory.
 <BR>
@@ -142,10 +146,10 @@ Filter by:
 <BR>
 Once you are done, click the "Submit Responses" button at the bottom of the page to record your responses.
 <BR>
-<u>You may return to this page at any time to update your responses or submit new responses, as long as you do so by the "Respond by" date written in red.</u> 
-The filtering options at the top of the page allow you to select the events you want to view and/or update. 
+<u>You may return to this page at any time to update your responses or submit new responses, as long as you do so by the "Respond by" date written in red.</u>
+The filtering options at the top of the page allow you to select the events you want to view and/or update.
 </p>
-				
+
 				</td>
 </tr>
 <tr><td colspan="2">
@@ -167,7 +171,7 @@ You currently have <?php echo $out_text;?> outstanding responses.
 
 	<div>
 
-		<button type="button"  class="validate" 
+		<button type="button"  class="validate"
 
 			onclick="Joomla.submitbutton('createResponses.process');">
 

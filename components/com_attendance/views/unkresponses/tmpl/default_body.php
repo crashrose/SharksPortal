@@ -32,12 +32,13 @@ $item->has_response= $item->rsvp_status!=''?1:0;
 	<td rowspan="2" class="rsvp_yn rsvp_top rsvp_bottom">
 		<h3 style="padding-bottom:4px">Response:</h3>
         <?php echo AttendanceHelper::yes_no_box ( $i, $item->id, $item->rsvp_status, $item->expired );?>
-    	
+
     </td>
 <!--     RSVP Details (Reason/Explanation) -->
 	<td rowspan="2" class="rsvp_details rsvp_top rsvp_bottom">
 		<?php
-		$div_class = "rsvp_details_" . $item->id;
+		$yes_class = $item->expired == '' ? ' class="att_yesable_div" ' : '';
+		$div_id = "rsvp_details_" . $item->id. '" ';
 		$rsvp_details_pane = '';
 		switch ($item->rsvp_status) {
 			case 1 :
@@ -61,10 +62,10 @@ $item->has_response= $item->rsvp_status!=''?1:0;
 				$required='';
 				break;
 		}
-		echo '<div width="100%" id="' . $div_class . '"' . $rsvp_details_pane . '><div class="rsvp_details" style="float: left;">';
+		echo '<div width="100%" id="' . $div_id . $yes_class . $rsvp_details_pane . '><div class="rsvp_details" style="float: left;">';
 		echo "<h3>Select reason:</h3>";
 		echo AttendanceHelper::RSVP_reason ( $item->id, $item->rsvp_reason, $item->expired, $required );
-		
+
 		echo '</div><div class="rsvp_details" style="float: right;"><h3>Explain:</h3>';
 		echo AttendanceHelper::RSVP_details ( $item->id, $item->rsvp_details, $item->expired, $required );
 		echo "</div></div>";
