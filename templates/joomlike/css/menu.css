@@ -1,0 +1,306 @@
+/**
+ * @author vonFio.de
+ * @copyright Copyright (C) 2012
+ */
+
+
+.----jl_topmenu-------------------------------------------------- {}
+
+#jl_topmenu ul, #jl_footer_right ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+	float: right;
+}
+#jl_topmenu ul ul, #jl_footer_right ul ul {
+    display: none;
+}
+#jl_topmenu li, #jl_footer_right li{
+	list-style-type: none;
+	display: inline-block;
+	border-left: 1px solid #DDD;
+	padding: 0 10px;
+	margin: 5px 0;
+	height: 100%;
+	line-height: 100%;
+	float: left;
+}
+#jl_footer_right li{  margin: 0;  }
+#jl_topmenu li:first-child, #jl_footer_right li:first-child{ border-left: 0; }
+#jl_topmenu ul li a, #jl_topmenu ul li .separator, #jl_footer_right ul li a , #jl_footer_right ul li .separator {
+    background: none repeat scroll 0 0 transparent !important;
+    color: #999999; 
+    font-weight: normal;
+	height:100%;
+	line-height:100%;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+#jl_topmenu ul li a:hover, #jl_topmenu li.current a, #jl_topmenu li.active a,
+#jl_footer_right ul li a:hover, #jl_footer_right li.current a, #jl_footer_right li.active a {
+    color: #333;
+    text-decoration: none;
+}
+
+.----Suckerfish-1.Level-------------------------------------------------- {}
+ 
+#jl_mainmenu {  
+	padding: 0.4em 0.8em 0 0.8em;
+	border: none;
+	margin: 0;
+	background-repeat: repeat-x; 
+	background-position: top;
+	border-radius: 5px 5px 0 0;  
+}
+.jl_menu ul.mainmenu { /* all lists */
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	line-height: 1;
+}
+
+.jl_menu ul.mainmenu li { 
+	list-style: none;
+	padding: 0 2px 0 0;
+	margin: 0 0 3px 0;
+	float: left;
+	width: auto; 
+}
+.jl_menu ul.mainmenu li.active a, .jl_menu ul.mainmenu li#current a, .jl_menu ul.mainmenu li.active:hover ul, .jl_menu ul.mainmenu li#current:hover ul   {
+
+}
+.jl_menu ul.mainmenu a, .jl_menu ul.mainmenu .separator {
+	color: #FFFFFF;
+	text-align: center;
+	display: block;
+	width: auto;
+	margin: 0;
+	text-indent: 0;
+	padding: 0 13px 0 10px;
+	height: 34px;
+	line-height: 33px;
+	text-decoration: none;
+	border: 0 none;
+	font-family: 'Carrois Gothic', Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+.jl_menu ul.mainmenu li:last-child a, 
+.jl_menu ul.mainmenu li:last-child .separator {
+	background: url(none); 
+} 
+.jl_menu ul.mainmenu li li a, .jl_menu ul.mainmenu li li .separator {
+	font-family: Helvetica, Arial, sans-serif;
+	text-transform: none;
+}
+
+.jl_menu ul.mainmenu a:hover {
+	text-decoration: none;
+}
+.jl_menu ul.mainmenu li.current, .jl_menu ul.mainmenu li.active  {
+	position: relative;
+	margin: -12px 0 0 -7px;
+	height: 49px;  
+	padding: 0 8px 0 0;
+	background: url(../images/navover_right.png) top right no-repeat; 
+}
+.jl_menu ul.mainmenu li.current a, .jl_menu ul.mainmenu li.current .separator, .jl_menu ul.mainmenu li.active a, .jl_menu ul.mainmenu li.active .separator {
+	color: #999; 
+	height: 49px;
+	line-height: 49px;
+	background: url(../images/navover_left.png) top left no-repeat;
+	padding: 0 10px 0 18px; 
+}
+.jl_menu ul.mainmenu li.current a:hover,
+.jl_menu ul.mainmenu li.current:hover,
+.jl_menu ul.mainmenu li.active:hover,
+.jl_menu ul.mainmenu li.active a:hover,
+.jl_menu ul.mainmenu li.active a:hover, .jl_menu ul.mainmenu li.active ul  {
+	background-color: transparent !important;
+} 
+
+/* second-level lists */
+.----Suckerfish-2.Level-------------------------------------------------- {}
+
+
+ 
+.jl_menu ul.mainmenu li ul { 
+	position: absolute; 
+	width: 10em;
+	left: -999em; 
+	padding: 1em 0.3em 1em 0.3em;
+	z-index: 999; 
+	border-top: none !important;
+	margin-left: -2px;
+} 
+
+.jl_menu ul.mainmenu li.active ul {  background-color: #FFF !important; border: 1px solid #EEE; border-top: none;border-radius: 0 0 5px 5px; margin-left: 3px;}
+.jl_menu ul.mainmenu li.active li {  background: #FFF url(none); padding: 5px 0; margin: 0; height: 120%;}
+.jl_menu ul.mainmenu li.active li a, .jl_menu ul.mainmenu li li.active a, .jl_menu ul.mainmenu li.active li .separator, .jl_menu ul.mainmenu li li.active .separator {  background: #FFF url(none); height: 120%; line-height: 120%; padding: 0 15px 0 15px;}
+ 
+.jl_menu ul.mainmenu li li.current a, .jl_menu ul.mainmenu li li.current .separator, .jl_menu ul.mainmenu li li.active a, .jl_menu ul.mainmenu li li.active .separator { 
+	height: 120%; line-height: 120%;
+}
+
+.jl_menu ul.mainmenu li li, .jl_menu ul.mainmenu li li a { 
+	float: none; 
+	background: url(none); 
+}
+.jl_menu ul.mainmenu li ul a, .jl_menu ul.mainmenu li ul .separator {
+	text-align: left;
+	display: block;
+	width: auto;
+	padding: 6px 15px;
+	height: 120%; line-height: 120%;
+	text-decoration: none; 
+}
+.jl_menu ul.mainmenu li ul a:hover {
+	text-decoration: underline;
+}
+
+
+/* third-and-above-level lists */
+.----Suckerfish-3.Level-------------------------------------------------- {}
+.jl_menu ul.mainmenu li ul ul, .jl_menu ul.mainmenu li.active ul ul { 
+	margin: -1em 0 0 8em;
+}
+
+.jl_menu ul.mainmenu li:hover ul ul, .jl_menu ul.mainmenu li:hover ul ul ul {
+	left: -999em;
+}
+
+.jl_menu ul.mainmenu li:hover ul, .jl_menu ul.mainmenu li li:hover ul, .jl_menu ul.mainmenu li li li:hover ul { 
+	left: auto;
+}
+ 
+
+/* submenu lists */
+.----Submenu-------------------------------------------------- {}
+
+
+#jl_submenu {
+	background-image: url(../images/submenu.png);
+	background-position: bottom;
+	background-repeat: repeat-x; 
+	border-radius: 0 0 3px 3px;
+	margin: -1px 0;
+	padding: 0.7em 0.8em ; 
+}
+#jl_submenu.responsive_menu {
+	padding: 0.5em 0.8em 0 0.8em; 
+}
+.jl_menu ul.submenu,  #jl_toolbar ul.menu { 
+	list-style: none;
+	padding: 0; margin: 0;
+}
+.jl_menu ul.submenu li  , #jl_toolbar ul.menu li{ 
+	float: left;
+	padding: 0 15px; margin: 0; 
+	border-right: 1px solid #EEE;
+}
+.jl_menu ul.submenu li:last-child , #jl_toolbar ul.menu li:last-child{ 
+	border-right: 0 none;
+}
+.jl_menu ul.submenu li a, .jl_menu ul.submenu li.active li a,
+#jl_toolbar ul.menu li a, #jl_toolbar ul.menu li.active li a{  
+	color: #999; 
+	font-family: Arial, Helvetica, sans-serif;
+}
+.jl_menu ul.submenu a:hover, .jl_menu ul.submenu li.current a,  #jl_toolbar ul.menu li a:hover,  #jl_toolbar ul.menu li.current a {  color: #666; text-decoration: none; background: none; }
+
+
+
+/* Sidebar Menu */
+.----Sidebar Menu-------------------------------------------------- {}
+
+.jl_sidebar ul.menu, 
+.jl_sidebar ul.menu li {
+	list-style-type: none !important;
+	padding: 0;
+	margin: 0 !important;
+}
+.jl_sidebar ul.menu ul {
+	padding: 0 0 5px 0;
+} 
+.jl_sidebar ul.menu li a, .jl_sidebar ul.menu li .separator, 
+.jl_sidebar ul.menu li.current a, .jl_sidebar ul.menu li.current .separator {
+	background: url(../images/indent1.png) no-repeat left;
+	display: block;
+	color: #333;
+	text-decoration: none;
+	margin: 2px 0px;
+	padding: 5px 0 5px 17px;
+}
+.jl_sidebar ul.menu a:hover, 
+.jl_sidebar ul.menu li.current a {
+	color: #999; 
+}
+ 
+.jl_sidebar ul.menu li.current li a, .jl_sidebar ul.menu li.current li .separator ,
+.jl_sidebar ul.menu li li a, .jl_sidebar ul.menu li li .separator ,
+.jl_sidebar ul.menu li li.current a, .jl_sidebar ul.menu li li.current .separator ,
+.jl_sidebar ul.menu li li.current li a, .jl_sidebar ul.menu li li.current li .separator ,
+.jl_sidebar ul.menu li li li a, .jl_sidebar ul.menu li li li .separator  {
+	background: url(../images/indent4.png) no-repeat 0px 10px  ;
+	padding: 3px 0 3px 3px;
+	margin: 2px 0 2px 13px;
+	display: block;
+	color: #333;
+	text-decoration: none;
+	text-indent: 13px;
+}
+
+.jl_sidebar ul.menu li.current li a,
+.jl_sidebar ul.menu li li.current a,
+.jl_sidebar ul.menu li li.current li a,
+.jl_sidebar ul.menu li li a:hover,
+.jl_sidebar ul.menu li.parent.current li a:hover,
+.jl_sidebar ul.menu li li.parent.current li a:hover {
+	color: #999; 
+}
+.jl_sidebar ul.menu li.parent.current li a,
+.jl_sidebar ul.menu li li.parent.current li a {
+	background-color: transparent;
+	color: #333;
+}
+
+
+
+/* Toggle Menu */
+.----Toggle Menu-------------------------------------------------- {}
+
+
+.toggleMainmenu, .toggleSubmenu { display:  none; width: 90%;  } 
+
+#jl_navigation a.toggleMainmenu , #jl_navigation a.toggleSubmenu  { display:  none;  height: 34px; line-height: 30px; margin: 0 0 0.3em 0; padding:0 1em 0 3.3em;  color: #FFF; }
+.jl_style_light #jl_mainmenu a.toggleMainmenu {color: #999; }
+
+#jl_navigation a.toggleSubmenu {
+	background: url(../images/light/responsive_menu_button.png) left top no-repeat; color: #999;
+} 
+@media screen and (max-width: 768px) {
+
+.active { }
+.responsive_menu li a  { font-size: 110%; }
+ 
+.responsive_menu ul { list-style: none; *zoom: 1; padding: 1em 0; margin: 0; } 
+.responsive_menu ul ul {   padding: 1em 0 0 0;} 
+
+.responsive_menu ul li  { display:block; padding: 0.4em 1.2em;  }
+.responsive_menu ul ul li.parent, .responsive_menu ul li.parent.liopen  { padding-bottom: 0;  }
+.responsive_menu ul li li,
+.responsive_menu ul li li:hover { padding-right: 0;  } 
+
+.responsive_menu ul li a , .responsive_menu ul li .separator { display: block; color: #FFF; } 
+ 
+ 
+.responsive_menu ul .liopen ul,
+.responsive_menu ul .liopen:hover ul,
+.responsive_menu ul .active ul,
+.responsive_menu ul .active:hover ul  { left: auto;  position: relative;}
+
+ 
+#jl_submenu .responsive_menu ul li a , #jl_submenu .responsive_menu ul li .separator { display: block; color: #999; }
+#jl_submenu .responsive_menu ul li.current, #jl_submenu .responsive_menu ul li.current a { background: #999; color: #FFF; }
+}

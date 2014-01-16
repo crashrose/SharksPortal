@@ -1,0 +1,134 @@
+@CHARSET "ISO-8859-1";
+/* ##########################  tables   ########################### */
+.invalid {
+    border-color: red !important;
+}
+.pagination { overflow:hidden;padding:10px 0; }
+.pagination .counter { margin:0; }
+
+
+
+.pagination ul { overflow:hidden;}
+.pagination ul li {
+	float:left;
+	margin:0 6px 0 0;
+}
+
+.pagination .pagenav {
+	display:block;
+	background:#fff;
+	margin:0 4px 0 0;padding:2px 6px;
+	border:1px solid #e5e5e5;
+	border-radius: 5px;
+	-o-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+    margin:10px 0;
+}
+
+
+.pagenav .pagenav-prev { float:left; }
+.pagenav .pagenav-next { float:right; }
+.pagenav-prev, .pagenav-next {
+    margin:10px 0;
+}
+del.container{
+	text-decoration: inherit !important;
+}
+
+
+
+table.attendance td, p, tr
+{
+
+    border-style:none;
+    border-spacing:0px;
+    border-collapse:collapse;
+      border:solid 0px;
+      outline-style:none;
+ 
+}
+table.attendance
+{
+      border:2px solid #666 !important;
+      width:95%
+}
+
+table.attendance div
+{
+      display:inherit;
+}
+table.attendance td
+{
+           font-size:.95em;
+           	padding:5px;
+    line-height:1.5em !important;
+}
+
+p.atturgent
+{
+    color:red;
+}
+table.attendance th
+{
+	padding:5px;
+    line-height:1.5em !important;
+    border-style:none;
+    border-spacing:0px;
+    border-collapse:collapse;
+      border:solid 1px #666;
+      outline-style:none;
+      font-size:1em;
+      margin-left:auto;
+margin-right:auto;
+}
+td.rsvp_head
+{
+	padding: 4px;
+	font-size:.7em !important;
+}
+td.rsvp_head h3
+{
+	font-size:1.4em !important; 
+
+	font-weight:bold;
+}
+td.rsvp_yn
+{
+	border-left:1px solid #666 !important;
+	border-right:1px solid #666 !important;
+	
+}
+
+
+td.rsvp_bottom
+{
+   border-bottom:2px solid #666 !important;
+}
+td.rsvp_top
+{
+   border-top:2px solid #666 !important;
+}
+
+div.rsvp_details {
+	margin:2px 2px 2px 2px;
+	
+}
+table.attendance h3 {
+	font-weight:bold;
+	font-size:1em;
+	display: inherit;
+	margin:inherit !important;
+	padding: 3px 0 3px 0 !important;
+}
+
+tr.attrow0
+{
+   background:#eee; 
+   border-style:none;
+}
+tr.attrow1
+{
+   background:#fff;
+	border-style:none;
+}

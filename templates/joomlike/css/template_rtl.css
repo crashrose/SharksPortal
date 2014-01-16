@@ -1,0 +1,82 @@
+/**
+ * @author vonFio.de
+ * @copyright Copyright (C) 2012
+ */
+ 
+#jl_container, #jl_toolbar, html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, hr, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video, .jl_center { text-align: right; }
+h3 { text-align: right  !important; }
+
+
+#jl_topright_breaking,
+#jl_topright_topmenu,
+#jl_topright_search,
+#jl_topright_breaking_topmenu,
+#jl_topright_breaking_search,
+#jl_topright_topmenu_search,
+#jl_topright_breaking_topmenu_search,
+#jl_topright_topmenu_search_logo #jl_topmenu { float: left; width: 98%;  }
+
+#jl_topleft_breaking_topmenu_search { float: right; width: 25%; }
+#jl_topright_breaking_topmenu_search_logo { float: left; width: 72%;  }
+#jl_topleft_breaking_topmenu_search,
+#jl_topleft_topmenu_search,
+#jl_topleft_breaking_search,
+#jl_topleft_breaking_topmenu { float: right; width: 25%; }
+#jl_topright_breaking_topmenu_search_logo,
+#jl_topright_breaking_search_logo,
+#jl_topright_topmenu_search_logo,
+#jl_topright_breaking_topmenu_logo { float: left; width: 72%;  }
+#jl_topleft_topmenu_logo,
+#jl_topleft_search_logo { float: right; width: 49%; }
+#jl_topright_topmenu_logo,
+#jl_topright_search_logo { float: left; width: 50%;  }
+ 
+#jl_article, #jl_search input.inputbox  { float: right; text-align: right; } 
+#jl_search, #jl_topmenu { float: left; }  
+#jl_search {  background: url(../images/searchButton.png) no-repeat left; }
+ 
+.breadcrumbs .showHere {margin: 0 0 0 7px;  float: right;} 
+.breadcrumbs a { background: url(../images/indent3.png) no-repeat left; padding: 0 0 0 14px; margin: 0  0 0 7px; float: right; }
+
+#jl_header .jl_headerposition { left: 0; } 
+  
+#jl_topmenu ul, #jl_copyright ul { float: left; } 
+#jl_topmenu li, #jl_copyright li {  border-right: 1px solid #DDD; border-left: none;  float: right; }
+#jl_topmenu li:first-child, #jl_copyright li:first-child{ border-right: 0; }
+
+#jl_mainmenu li {  float: right; }
+#jl_mainmenu li ul a,
+#jl_mainmenu li ul .separator { text-align: right; } 
+
+#jl_mainmenu li ul { left: auto; right: -999em; } 
+#jl_mainmenu li.active ul { margin-right: 3px; }
+
+#jl_mainmenu li ul ul,
+#jl_mainmenu li.active ul ul { margin: -1em 8em 0 0; }
+
+#jl_mainmenu li:hover ul ul,
+#jl_mainmenu li:hover ul ul ul,
+#jl_mainmenu li.active:hover ul ul { left: auto; right: -999em; }
+
+#jl_mainmenu li:hover ul,
+#jl_mainmenu li li:hover ul,
+#jl_mainmenu li li li:hover ul   { left: auto; right: auto; }
+#jl_mainmenu li.active:hover ul,
+#jl_mainmenu li.active li:hover ul  { left: auto; right: 0; }
+ 
+#jl_mainmenu li li:hover ul  { margin: -1em 0 0  8em  !important; }
+ 
+#jl_submenu ul li {  float: right; border-left: 1px solid #EEE; border-right: none; }
+#jl_submenu ul li:last-child {  border-left: 0 none; }
+
+.jl_sidebar ul.menu li a, .jl_sidebar ul.menu li .separator, 
+.jl_sidebar ul.menu li.current a, .jl_sidebar ul.menu li.current .separator { background: url(../images/indent1_r.png) no-repeat right; padding: 5px 17px; }
+
+.jl_sidebar ul.menu li.current li a, .jl_sidebar ul.menu li.current li .separator ,
+.jl_sidebar ul.menu li li a, .jl_sidebar ul.menu li li .separator ,
+.jl_sidebar ul.menu li li.current a, .jl_sidebar ul.menu li li.current .separator ,
+.jl_sidebar ul.menu li li.current li a, .jl_sidebar ul.menu li li.current li .separator ,
+.jl_sidebar ul.menu li li li a, .jl_sidebar ul.menu li li li .separator  { background: url(../images/indent4_r.png) no-repeat right ; padding: 3px 3px 3px 0; margin: 2px 13px; }
+
+pre {border-right: 4px solid #DDD;padding: 15px 20px 15px 10px;}
+blockquote {border-right: 4px solid #EEE;}

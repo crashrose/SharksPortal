@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
+<extension version="2.5" type="template" client="site">
+	<name>JoomLike</name>
+	<creationDate>10.11.2012</creationDate>
+	<author>Fio</author>
+	<copyright>Copyright (c) 2012 - vonfio.de</copyright>
+	<license>Creative Commons Attribution-Share Alike 3.0 Unported</license>
+	<authorEmail>ich@vonfio.de</authorEmail>
+	<authorUrl>http://www.vonfio.de</authorUrl>
+	<version>2.5.7</version>
+	
+	<description>
+	<![CDATA[
+	<link rel="stylesheet" type="text/css" href="../templates/joomlike/admin/style.css" />
+	<style type="text/css" media="all">
+		<!--
+		#wrap1 {padding:0px 0px 4px 0px;}  
+		.jl_container {text-align: center; } .jl_center { margin: 0 auto; width: 150px;}
+		
+		.jl_title { font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-style: italic; color: #DDD; font-size: 21px; text-align: left !important; padding: 10px 0 0 20px;}
+		.jl_head1 { font-size: 46px; color: #888; height: 46px; line-height: 46px; }
+		.jl_head3 { font-size: 36px; color: #888; height: 46px; line-height: 50px; }
+		.jl_head2 { font-size: 36px; color: #DDD; text-decoration: underline; height: 46px; line-height: 46px;}
+		.jl_head2 span { color: #858585; text-decoration: none; font-size: 21px;}
+		.jl_head1, .jl_head2, .jl_head3 { float: left; }
+
+		#wrap1 img {float:left; margin: 5px 10px 10px 0;}
+		
+		.wrap2 {background:#fff;padding: 20px; font-family: Arial; font-size:13px; color: #4d4d4d; line-height: 24px;}
+		
+		.leftart {margin: 16px 0 0 0; font-weight: normal!important; }
+		
+		.livedemo { margin-top: 28px; }
+.clear { clear: both; height: 0; line-height:0;}
+		-->
+	</style>
+	
+	<div id="wrap1">  
+	
+		<div class="jl_title"><div class="jl_head1">J</div><div class="jl_head2"><span>OOM</span></div><div class="jl_head3">L</div><div class="jl_head2"><span>IKE</span></div></div>
+		<div class="clear"></div>
+		
+		<div class="wrap2">  
+		
+			<a title="Visit the official website!" href="http://joomlademo.vonfio.de/joomlike.html" target="_blank"> <img src="../templates/joomlike/template_thumbnail.png" border="0" alt="Logo" /></a>       
+						
+			<div class="leftart">            
+						 
+			<p><strong>Version:</strong> 2.5.7<br /><a href="http://www.vonfio.de" target="_blank">Check for Updates</a></p>
+			<p><strong>License: </strong><a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons</a></p>  
+			
+			<p class="livedemo"> <a href="http://joomlademo.vonfio.de/joomlike.html" target="_blank">View Joomlike in action</a></p>
+			
+			</div>
+			
+		</div>
+		</div>
+						
+	]]>
+	</description>
+	
+	<files>
+		<filename>component.php</filename>
+		<filename>error.php</filename>
+		<filename>favicon.ico</filename>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>template_thumbnail.png</filename> 
+		<filename>template_preview.png</filename> 
+		<folder>admin</folder>
+		<folder>css</folder>
+		<folder>fonts</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<folder>javascript</folder>
+		<folder>language</folder>
+		<folder>layout</folder>
+		<folder>lib</folder>
+	</files>
+
+	<languages folder="language"> 
+		<language tag="en-GB">en-GB/en-GB.tpl_joomlike.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_joomlike.sys.ini</language>
+		<language tag="de-DE">de-DE/de-DE.tpl_joomlike.ini</language>
+		<language tag="de-DE">de-DE/de-DE.tpl_joomlike.sys.ini</language>
+	</languages>
+
+	<positions>
+		<position>article</position>
+		<position>breadcrumbs</position>
+		<position>footer</position>
+		<position>footer-nav</position>
+		<position>header</position>
+		<position>contentleft</position>
+		<position>contentright</position>
+		<position>content-top1</position>
+		<position>content-top2</position>
+		<position>content-bottom1</position>
+		<position>content-bottom2</position>
+		<position>left-top</position>
+		<position>left-1</position>
+		<position>left-2</position>
+		<position>left-bottom</position>
+		<position>login</position>
+		<position>logo</position>
+		<position>mainmenu</position>
+		<position>position-1</position>
+		<position>position-2</position>
+		<position>position-3</position>
+		<position>position-4</position>
+		<position>position-5</position>
+		<position>position-6</position>
+		<position>position-7</position>
+		<position>position-8</position>
+		<position>position-9</position>
+		<position>position-10</position>
+		<position>position-11</position>
+		<position>position-12</position>
+		<position>position-13</position>
+		<position>position-14</position>
+		<position>position-15</position>
+		<position>position-16</position>
+		<position>right-top</position>
+		<position>right-1</position>
+		<position>right-2</position>
+		<position>right-bottom</position>
+		<position>search</position>
+		<position>submenu</position>
+		<position>topmenu</position>
+	</positions>
+	 
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+			 		 
+				<field name="colorVariation" type="list" default="blue" label="TPL_JOOMLIKE_TEMPLATESTYLE" description="TPL_JOOMLIKE_TEMPLATESTYLE_DESC">
+					<option value="blue">TPL_JOOMLIKE_BLUE</option>
+					<option value="red">TPL_JOOMLIKE_RED</option>
+					<option value="green">TPL_JOOMLIKE_GREEN</option>
+					<option value="dark">TPL_JOOMLIKE_DARK</option>
+					<option value="light">TPL_JOOMLIKE_LIGHT</option>
+				</field>
+				<field name="templateWidth" type="text" default="920px" label="TPL_JOOMLIKE_TEMP_WIDTH" description="TPL_JOOMLIKE_TEMP_WIDTH_DESC" />
+				<field name="sidebarWidth" type="text" default="25" label="TPL_JOOMLIKE_SIDEBAR_WIDTH" description="TPL_JOOMLIKE_SIDEBAR_WIDTH_DESC" />
+				<field name="cellpadding" type="text" default="0.5em" label="TPL_JOOMLIKE_CELLPADDING" description="TPL_JOOMLIKE_CELLPADDING_DESC" />
+				
+				
+				<field type="spacer" />
+				 
+				<field name="backgroundcolor" label="TPL_JOOMLIKE_BGCOLOR" type="color" ></field>
+				<field name="background" label="TPL_JOOMLIKE_BGIMAGE" type="media" directory="stories" /> 
+				
+			</fieldset>
+			
+			<fieldset name="TPL_JOOMLIKE_TYPO">
+			 	
+				<field name="fontfamily" type="text" default="Helvetica, Arial, sans-serif" label="TPL_JOOMLIKE_FONTFAMILY" description="TPL_JOOMLIKE_FONTFAMILY_DESC"></field>
+				<field name="fontsize" type="text" default="14px" label="TPL_JOOMLIKE_FONTSIZE" description="TPL_JOOMLIKE_FONTSIZE_DESC"></field>
+				<field name="fontcolor" type="color" label="TPL_JOOMLIKE_FONTCOLOR" description="TPL_JOOMLIKE_FONTCOLOR_DESC" />
+				<field name="linkcolor" type="color" label="TPL_JOOMLIKE_LINKCOLOR" default="#6699CC" description="TPL_JOOMLIKE_LINKCOLOR_DESC" />
+				
+			</fieldset>
+		</fields>
+	</config>
+</extension>

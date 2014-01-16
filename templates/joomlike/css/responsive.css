@@ -1,0 +1,100 @@
+/**
+ * @author vonFio.de
+ * @copyright Copyright (C) 2012
+ */
+
+@media only screen and (min-width:770px) {
+.responsive_menu {display:none !important; }
+}
+
+@media only screen and (max-width:800px) {
+	.jl_user_6 { width: 33.3%;}
+	#jl_right_out_left_right #jl_content_inset_contentright #jl_contentright,
+	#jl_right_out_left_right #jl_content_inset_contentright #jl_content2_inset_contentright { float: none; width: 100%; }
+	
+	
+	#jl_right_out_left_right #jl_content_inset_contentright #jl_contentright { border: 0; margin-top: 1em; }
+	.toggleMainmenu, .toggleSubmenu { display: inline-block !important;  } 
+	.jl_menu {display:none; }
+}
+
+@media only screen and (max-width:700px) {	 
+	#jl_bg { padding: 3% 3.5%; }
+	#jl_topright_search #jl_search input.inputbox { width: 30%; }
+	 .jl_user_6 { width: 50%;} 
+	
+	#jl_right_out_left_right #jl_content_out_right {  width: 100%; }
+	#jl_right_out_left_right #jl_right {  width: 100%; } 
+	
+}
+
+@media only screen and (max-width:600px) {
+
+	#jl_bg { padding: 2% 3%; }
+	.jl_center { max-width: 100%; } 
+	
+	#jl_topleft_breaking_search,
+	#jl_topright_breaking_search,
+	#jl_topright_breaking_search_logo,
+	#jl_topleft_breaking_topmenu,
+	#jl_topright_breaking_topmenu,
+	#jl_topright_breaking_topmenu_logo, 
+	#jl_topright_topmenu_search, 
+	#jl_topleft_breaking_topmenu_search,
+	#jl_topright_breaking_topmenu_search,
+	#jl_topright_breaking_topmenu_search_logo { width: 100%; }
+	 
+	#jl_topright_topmenu_search_logo, #jl_topleft_topmenu_search, .jl_user_4, .jl_user_5 { width: 50%;}
+
+	#jl_right_out_left_right, #jl_right_out_left, #jl_content_out_right, #jl_right_out_left_right #jl_right, #jl_right_out_right #jl_right, #jl_left, #jl_content_inset_contentleft_contentright #jl_content2_inset_contentright, #jl_content_inset_contentleft_contentright #jl_contentright, #jl_content_inset_contentright #jl_contentright, #jl_content2_inset_contentright, #jl_content_inset_contentleft,  #jl_content_inset_contentleft #jl_content2_inset, #jl_content_inset_contentright #jl_contentright {  width: 100%; } 
+}
+
+@media only screen and (max-width:480px) {
+
+	body, p, td, tr, .jl_module , .jl_module p , .jl_module td , .jl_module ul li { font-size: 1em; }
+
+	#jl_bg { padding: 0; }
+	.jl_center { max-width: 100%; border-radius: 0; } 
+	
+	#jl_topright_search #jl_search,
+	#jl_topright_breaking_topmenu_search,
+	#jl_topright_topmenu_search,
+	#jl_topright_topmenu_search_logo #jl_search { min-width: 95%; }
+	 
+	#jl_topleft_topmenu,
+	#jl_topleft_search ,
+	#jl_topleft_breaking { float: left; width: 48%; }
+	#jl_topright_topmenu_logo,
+	#jl_topright_search_logo,
+	#jl_topleft_breaking_logo { float: right; width: 50%;  }
+
+	#jl_search input.inputbox { min-width: 70%; }
+	#jl_search input.button { margin: 0; }
+	
+	
+	.jl_normal { display: none; }
+	.jl_small { display: block; }
+    .active {  display: block;  } 
+	
+	#jl_mainmenu_hide {display: block !important; }	
+	.toggleModule { padding: 0.2em 0 0.2em 2em; margin: 0 0 0 1em; background: url(../images/indent2.png) no-repeat left; }
+		
+	.jl_module .module_responsive_out h3,
+	.jl_module .module_responsive_out .moduletableround h3 { padding: 0; margin: 0; background: url(none); }
+	 
+	.jl_module .module_responsive_out { padding: 0.25em; margin: 0; }
+	.jl_module .module_responsive_out div.module_responsive_out{ padding: 0; margin: 0; }
+	.jl_module .module_responsive_out .moduletableround, .jl_module div.module_responsive_out div div, .jl_module div ul ul {  margin: 0 !important; }
+	.jl_module div, .jl_module div.moduletableround{  padding: 0.25em 0.75em; }
+	.jl_module div.module_responsive_out { padding:0; }
+ 
+ 
+	.jl_over_content .jl_un_separate, .jl_under_content .jl_un_separate, .jl_separate_right, .jl_separate_left { padding: 0; }
+	.jl_user_1, .jl_user_2, .jl_user_3, .jl_user_4, .jl_user_5, .jl_user_6 { width: 100%;  }
+
+	#jl_topleft, #jl_topright, #jl_left, #jl_right, #jl_right_out_left_right, #jl_right_out_left, #jl_content_out_right,.cols-2 .column-1, .cols-2 .column-2, .cols-3 .column-1, .cols-3 .column-2, .cols-3 .column-3 , .cols-4 .column-1, .cols-4 .column-2, .cols-4 .column-3, .cols-4 .column-4, #jl_content_inset_contentleft_contentright, #jl_contentleft, #jl_contentright {  width: 100%; margin: 0; }
+	
+	#jl_content, #jl_breadcrumbs{ border: none; padding: 0.1em; }
+	#jl_contentleft, #jl_contentright, .jl_contenttop, .jl_contentbottom { border: none; } 
+	 .jl_contenttop .jl_user_2, .jl_contentbottom .jl_user_2 { border: none; } 
+}  

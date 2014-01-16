@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="system" method="upgrade">
+        <name>plg_system_match_user_groups_jdownloads</name>
+        <author>Arno Betz</author>
+        <creationDate>2013-05-30</creationDate>
+        <copyright>Copyright 2007 - 2013 Arno Betz</copyright>
+        <license>GNU General Public License version 2 or later.</license>
+        <authorEmail>info@jdownloads.com</authorEmail>
+        <authorUrl>www.jdownloads.com</authorUrl>
+        <version>3.1</version>
+        <description>This plugin compares the Joomla 'Viewing access levels' with the jDownloads user groups and add missing users to the user groups with the same names in jDownloads. You must activate it, otherwise it does nothing! Instructions: To add the users to a jDownloads user group, create a new user groups in jDownloads with exactly the same name as in the Joomla 'Viewing access levels'. Afterwards are added automaticly all needed users to this user list. The groups are permanent updated.</description>
+        <files>
+                <filename plugin="match_user_groups_jdownloads">match_user_groups_jdownloads.php</filename>
+                <filename>index.html</filename>
+        </files>
+        <languages>
+                <language tag="en-GB">en-GB.plg_system_match_user_groups_jdownloads.ini</language>
+                <language tag="en-GB">en-GB.plg_system_match_user_groups_jdownloads.sys.ini</language>
+        </languages>
+</extension>

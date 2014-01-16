@@ -1,0 +1,44 @@
+/**
+ * @author vonFio.de
+ * @copyright Copyright (C) 2012
+ */
+
+   
+#jl_mainmenu {
+	background-image: url(../images/green/navback.png);  background-color: #4D6600;
+}
+#jl_mainmenu a.toggleMainmenu {
+	background: url(../images/green/responsive_menu_button.png) left top no-repeat; 
+} 
+.jl_menu li ul { border: 1px solid #4D6600; } 
+
+.jl_menu  ul.mainmenu a, .jl_menu  ul.mainmenu .separator {
+	background: url(../images/green/navborder.png) bottom right no-repeat; 
+} 
+.jl_menu li a:hover, .jl_menu li:hover ul  {
+	background-color: #5A7700;
+} 
+.responsive_menu ul li.current,
+.responsive_menu ul li.current a { background-color: #5A7700; color: #fff; }
+.jl_menu li li a, 
+.jl_menu li li .separator  {
+	border-right: 0;
+	background: none;
+}
+
+.jl_module h3 { color: #666;  }
+
+.jl_module .moduletableround h3 {
+	color: #FFF;
+	background-color: #6C8F00;
+	background-image: url(../images/green/sidebar_h3.png);
+}
+.contentheading, .contentheading a {
+	color: #336699 !important;
+}
+.componentheading, .componentheading a {
+	background-image: url(../images/green/navback.png);
+}
+.button {
+	background-color: #EAFFA8;
+}

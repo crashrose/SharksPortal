@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+        <fieldset>
+                <field
+                        name="id"
+                        type="hidden"
+                />
+                <field
+                        name="loc_name"
+                        type="text"
+                        label="COM_ATTENDANCE_LOCATION_NAME_LABEL"
+                        size="40"
+                        class="inputbox"
+                        default=""
+                />
+                <field
+                        name="loc_address_1"
+                        type="text"
+                        label="COM_ATTENDANCE_LOCATION_ADD_1_LABEL"
+                        size="80"
+                        class="inputbox"
+                        default=""
+                />
+                <field
+                        name="loc_address_2"
+                        type="text"
+                        label="COM_ATTENDANCE_LOCATION_ADD_2_LABEL"
+                        size="80"
+                        class="inputbox"
+                        default=""
+                />
+                <field
+                        name="loc_city"
+                        type="text"
+                        label="COM_ATTENDANCE_LOCATION_CITY_LABEL"
+                        size="40"
+                        class="inputbox"
+                        default=""
+                />
+                <field
+                        name="loc_state"
+                        type="text"
+                        label="COM_ATTENDANCE_LOCATION_STATE_LABEL"
+                        size="20"
+                        class="inputbox"
+                        default=""
+                />
+                <field
+                        name="loc_zip"
+                        type="text"
+                        label="COM_ATTENDANCE_LOCATION_ZIP_LABEL"
+                        size="5"
+                        class="inputbox"
+                        default=""
+                />
+                <field
+                        name="loc_country"
+                        type="text"
+                        label="COM_ATTENDANCE_LOCATION_COUNTRY_LABEL"
+                        size="40"
+                        class="inputbox"
+                        default=""
+                />
+                <field
+                        name="loc_phone"
+                        type="text"
+                        label="COM_ATTENDANCE_LOCATION_PHONE_LABEL"
+                        size="20"
+                        class="inputbox"
+                        default=""
+                />
+                <field
+                        name="loc_note"
+                        type="text"
+                        label="COM_ATTENDANCE_LOCATION_NOTE_LABEL"
+                        size="80"
+                        class="inputbox"
+                        default=""
+                />
+                <field
+                        name="loc_website"
+                        type="text"
+                        label="COM_ATTENDANCE_LOCATION_WEBLINK_LABEL"
+                        size="100"
+                        class="inputbox"
+                        default=""
+                />
+                <field
+                        name="loc_maplink"
+                        type="text"
+                        label="COM_ATTENDANCE_LOCATION_MAPLINK_LABEL"
+                        size="100"
+                        class="inputbox"
+                        default=""
+                />
+        </fieldset>
+</form>

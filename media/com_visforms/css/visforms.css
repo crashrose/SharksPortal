@@ -1,0 +1,150 @@
+#visformcontainer {
+	width: 100%;
+}
+
+.vis_mandatory {
+	color:#FF0000;
+	padding: 0px;
+	font-size:0.83em;
+	font-weight: bold;
+}
+
+.visform_tooltip, .visform_tooltipcss {
+	margin-top: 13px;
+	margin-left: 5px;
+}
+
+.visform {
+	margin-top: 10px;	
+}
+
+.visform .calendar {
+		margin-left: 3px;
+}
+
+.visform div.error {
+	display: none;
+}
+
+.visform div.fc-error {
+	margin-left: 20%;
+	border: none;
+	background:none;
+	padding: 0px;
+}
+
+.visform div.fc-error p {
+	margin: 0px;
+	padding: 0px;
+	color:#F00 !important;
+}
+
+.visform input { 
+ 	border: 1px solid #999;
+	padding: 2px;
+}
+
+.visform input:focus { 
+ 	border: 1px dotted #999;
+}
+
+.visform input.error {
+	border: 1px dotted #FF0000 !important;
+}
+.visform textarea.error { border: 1px dotted red; }
+
+#vispoweredby {
+	text-align:center !important;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#vispoweredby a {color:#666666;}
+
+.captchaCont {
+	margin-top: 10px;
+}
+
+.visBtnCon {
+	text-align: center !important;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+/* CSS layout */
+
+.visCSSlabel {
+	display: block;
+	float: left;
+	margin-top: 10px;
+	width: 30%;
+	font-size:1em;
+}
+
+.visCSSinput {
+	width: 66%;
+	margin-top: 10px;
+	background:none;
+}
+
+.visCSSinput input {
+	background:none;
+}
+
+.visCSSinputnowidth {
+	display: block;
+	float: left;
+	margin-top: 10px;
+}
+
+.visCSSclear {
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+}
+
+.visCSSFloatLeft {
+	float: left;
+}
+
+.visCSSbot10 {margin-bottom: 10px;}
+.visCSSbot5 {margin-bottom: 5px;}
+.visCSStop10 {margin-top: 10px;}
+.visCSStop0 {margin-top: 0; padding-top: 10px;}
+
+.visCSScenter {
+	text-align:center !important;
+	margin-top: 10px !important;
+}
+
+.visCustomText {
+	margin-top: 10px;
+}
+
+.visNoBorder {
+	visibility:hidden;
+}
+
+.vispagination {
+	text-align:center !important;
+	margin-bottom: 15px;
+}
+
+.visdatatable {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 100%;
+	border-collapse:collapse;
+}
+
+.visdatatableborder td, .visdatatableborder th  {
+	border : 1px solid #ccc;
+	padding: 0 2px;
+}
+
+.visfrontlabel {
+	height: 30px;
+	padding-right: 20px;
+	font-weight: bold;
+	color:#666;
+}

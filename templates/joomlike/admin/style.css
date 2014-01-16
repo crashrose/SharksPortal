@@ -1,0 +1,30 @@
+  
+ 
+label { font-family: Arial, Helvetica, sans-serif; }
+span.label { width:100%!important; clear: both; display: block; }
+span.label > strong { max-width: 30%!important; min-width: 30%!important; padding: 0 20px 0 10px; text-align: right; float: left; }
+span.label > input { width: 50%; } 
+ul.adminformlist { padding: 0 0 20px 0; }
+.adminformlist li { overflow:hidden; }
+.adminformlist li:first-child { border-top: none; }
+div.button2-left, div.media-preview { margin-top: 7px; } 
+  
+.pane-sliders .panel { border: none !important; }
+div.panel > h3 { height: 33px; background: transparent url('interface.png') repeat-x 0 0 !important; border: 1px solid #d8d8d8; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; font: bold 12px/33px Arial, Helvetica, sans-serif; text-transform: uppercase; }
+div.panel > h3 a { color: #333; text-shadow: 0 1px 1px #fff; }
+div.panel > h3 a:hover { color: #146295 }
+div.panel h3.pane-toggler-down a { color: #666; }
+div.panel h3.pane-toggler-down { border-bottom: 2px solid #CCC !important }
+.pane-toggler span { background: transparent url('../images/indent1.png') no-repeat 5px 50% !important; }
+.pane-toggler-down span { background: transparent url('../images/indent2.png') no-repeat 5px 50% !important; }
+.pane-sliders .content { margin: 4px auto; width: 99%; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; 1px solid #d8d8d8 !important; } 
+ 
+fieldset.panelform { margin: 0!important; padding: 0!important; }
+.panel fieldset.panelform label { color: #444; font-size: 11px; font-weight: bold; height: 24px; line-height: 24px; padding: 0 20px 0 10px; text-align: right; max-width: 25%!important; min-width: 25%!important; }
+fieldset.panelform input { height: 16px; color: #555; line-height: 16px; padding: 4px; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; } 
+fieldset.panelform input[type=button], fieldset.panelform button { height: 27px;  background: #03A0DA; color: #fff; border-color: #03A0DA; font: bold 11px/25px Arial, Helvetica, sans-serif; cursor: pointer; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px;}
+fieldset.panelform input[type=button]:hover, fieldset.panelform button:hover { background: #333; border-color: #333}
+fieldset.panelform select { height: 26px; color: #555; line-height: 24px; padding: 4px; font-size:11px; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; }
+fieldset.panelform select.position { width: 80px!important; }
+fieldset.panelform textarea { padding: 4px; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; }
+fieldset.panelform select[multiple=multiple] { height: 150px; } 

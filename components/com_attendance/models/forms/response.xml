@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+        <fieldset name="response-form"
+            		addfieldpath="/components/com_attendance/models/fields" >
+                <field
+                        name="id"
+                        type="hidden"
+                />
+				<field name="rsvp_status" type="radio" label="Are you attending?" description="">
+					<option value="1">Yes </option>
+					<option value="0">No </option>
+					<option value="-1">Unknown </option>
+				</field>
+				<field
+					name="rsvp_event"
+					type="events"
+					label="COM_ATTENDANCE_RSVP_EVENT_LABEL"
+					description="COM_ATTENDANCE_RSVP_EVENT_DESC"
+					readonly="true"
+					size="40" 
+					class="textbox"
+				/>
+                <field name="rsvp_reason_id" 
+					type="sql" 
+					label="COM_ATTENDANCE_RSVP_REASON_LABEL" 
+					description="COM_ATTENDANCE_RSVP_REASON_LABEL_DESC"
+					query="SELECT id as value, reason_name AS rsvp_reason_id FROM #__sched_rsvp_reasons"
+		 		/>
+				<field name="rsvp_user" type="user"
+			        label="COM_ATTENDANCE_RSVP_USER_LABEL"
+			        class="readonly"
+			        readonly="true"
+			    />
+                <field
+                        name="rsvp_details"
+                        type="inputbox"
+                />
+                <field
+                        name="rsvp_active"
+                        type="hidden"
+                        default="true"
+                />
+                <field
+                        name="rsvp_date_submitted"
+                        type="calendar"
+                        default="NOW"
+                        readonly="true"
+                />
+        </fieldset>
+</form>

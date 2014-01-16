@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_VISFORMS_VISFORMSDATA_VIEW_DEFAULT_TITLE" option="COM_VISFORMS_VISFORMSDATA_VIEW_DATA_OPTION">
+		<message>
+			<![CDATA[COM_VISFORMS_VISFORMSDATA_VIEW_DATA_DESC]]>
+		</message>
+	</layout>
+	<fields name="request">
+    <fieldset name="request"
+	addfieldpath="administrator/components/com_visforms/models/fields"
+	>
+     
+	  <field name="id" type="modal_visdata"
+				description="COM_VISFORMS_CHOOSE_FORM_DESC"
+				label="COM_VISFORMS_CHOOSE_FORM"
+				required="true"
+			/>
+	<field name="layout"
+				type="hidden"
+				default="data"
+			/>
+	</fieldset>	
+  </fields>  
+	
+		
+		<config><fields name="params"><fieldset name="basic" label="COM_VISFORMS_ATTRIB_VISFORMSDATA_SETTINGS">
+			<field name="show_columnheader" type="radio" default="1" label="Column Headers" description="Show/Hide the Column Headers">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+			</field>
+			<field name="show_tableborder" type="radio" default="1" label="Table Borders" description="Show/Hide the Table Borders">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+			</field>
+		</fieldset></fields></config>
+</metadata>
