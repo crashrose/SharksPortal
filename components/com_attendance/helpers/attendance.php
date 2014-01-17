@@ -52,7 +52,7 @@ class attendanceHelper {
     public static function RSVP_reason($id, $rsvp_reason, $disabled, $required) {
         // Create the batch selector to change the client on a selection list.
         $yes_class = $disabled == '' ? ' att_yesable ' : '';
-        $lines = array('<select ' . $disabled . ' name="rsvp_reason[]" class="att_reason inputbox ' . $yes_class . $required . '" id="rsvp_reason_' . $id . '">', '<option value=""> - Reason - </option>', JHtml::_('select.options', self::reasonlist(), 'value', 'rsvp_reason', $rsvp_reason), '</select>');
+        $lines = array('<select ' . $disabled . ' name="rsvp_reason[]" class="att_reason inputbox ' . $yes_class . $required . '" id="rsvp_reason_' . $id . '">', '<option value="0"> - Reason - </option>', JHtml::_('select.options', self::reasonlist(), 'value', 'rsvp_reason', $rsvp_reason), '</select>');
         $lines = implode("\n", $lines);
         $lines = $disabled ? $lines . '<input type="hidden" name="rsvp_reason[]" default=' . $rsvp_reason . ' value="' . $rsvp_reason . '" />' : $lines;
 

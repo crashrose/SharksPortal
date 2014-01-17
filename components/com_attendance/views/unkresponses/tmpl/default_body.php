@@ -3,7 +3,7 @@
 defined ( '_JEXEC' ) or die ( 'Restricted Access' );
 
 foreach ( $this->items as $i => $item ) :
-$item->has_response= $item->rsvp_status!=''?1:0;
+$item->has_response= $item->rsvp_status>-1?1:0;
 	$item->id = $item->event_id . '_' . $item->user_id;
 	$item->respond_by = date("n/j/Y",strtotime($item->event_respond_by)) == '1/1/1970'?$item->event_date:$item->event_respond_by;
 	$item->expired = $item->event_respond_by > 1 && $item->event_respond_by < date ( "Y-m-d H:i:s" ) ? ' disabled ' : '';
@@ -23,7 +23,7 @@ $item->has_response= $item->rsvp_status!=''?1:0;
 <tr class="attrow<?php echo $i % 2; ?>">
 	<td colspan="3" class="rsvp_head rsvp_top"><h3>
 		<?php echo date("D. M j, ",strtotime($item->event_date)) . ' ' . date("g:ia", strtotime($item->event_time));?>
-	</h3><?php echo $this->has_response;
+	</h3><?php
 	echo $item->has_response==0
 		? '<p class="atturgent">Respond by: '. date("n/j/Y",strtotime($item->respond_by))
 		: '<p class="attnormal">You responded on '. date("n/j/Y",strtotime($item->rsvp_date_submitted))

@@ -38,7 +38,7 @@ class attendanceControllerCreateResponses extends JControllerLegacy {
 		$rsvp_status = $jinput->get ( 'rsvp_status', Array (), 'array' );
 		$event_user = $jinput->get ( 'event_user', Array (), 'array' );
 		$event_active = $jinput->get ( 'rsvp_active', Array (), 'array' );
-		$rsvp_status_old = $jinput->get ( 'rsvp_status_old', Array (), 'array' );		
+		$rsvp_status_old = $jinput->get ( 'rsvp_status_old', Array (), 'array' );
 		$rsvp_details_old = $jinput->get ( 'rsvp_details_old', Array (), 'array' );
 		$rsvp_reason_old = $jinput->get ( 'rsvp_reason_old', Array (), 'array' );
 // 		var_dump($jinput);
@@ -54,27 +54,27 @@ class attendanceControllerCreateResponses extends JControllerLegacy {
 					'rsvp_reason_old' => $rsvp_reason_old [$key],
 					'rsvp_status_old' => $rsvp_status_old [$key],
 					'rsvp_active' => 1,
-					'id' => '' 
+					'id' => ''
 			);
-			
+
 		}
 
 
-		
+
 		$table = & $this->getTable ();
 		foreach ( $submitted_response as $item ) {
 			$item ['rsvp_reason'] = $item ['rsvp_status']== "1"?'0':$item ['rsvp_reason'];
 			$item ['rsvp_details'] = $item ['rsvp_status']== "1"?'': $item ['rsvp_details'];
 			$keyArray = Array('rsvp_event'=>$item['rsvp_event'], 'rsvp_user'=>$item['rsvp_user']);
 // 			dump ($item ['rsvp_status']) ;
-			$no_change = (($item ['rsvp_status_old'] == $item ['rsvp_status']) 
-					&& ($item ['rsvp_reason_old'] == $item ['rsvp_reason']) 
+			$no_change = (($item ['rsvp_status_old'] == $item ['rsvp_status'])
+					&& ($item ['rsvp_reason_old'] == $item ['rsvp_reason'])
 					&& ($item ['rsvp_details_old'] == $item ['rsvp_details']))
 					? 1 : 0;
 // 			echo $item ['rsvp_status_old'] .' : '. $item ['rsvp_status'] . '<BR>';
 // 			echo $item ['rsvp_reason_old'] .' : '. $item ['rsvp_reason'] . '<BR>';
 // 			echo $item ['rsvp_details_old'] .' : '. $item ['rsvp_details'] . '<BR>';
-			$default_record = $item ['rsvp_status_old'] =='' && $item ['rsvp_details']==''&& $item ['rsvp_status']=="-1"?1:0;
+			$default_record = $item ['rsvp_status_old'] =='' && $item ['rsvp_reason']==0 && $item ['rsvp_details']==''&& $item ['rsvp_status']=="-1"?1:0;
 // 			echo 'record: ' .$item ['rsvp_event'] . 'no change: '. $no_change . '<BR> $default_record: ' . $default_record . '<BR>----<BR>';
 			if (!$no_change && !$default_record)
 			{
@@ -95,7 +95,7 @@ class attendanceControllerCreateResponses extends JControllerLegacy {
 		$table = JTable::getInstance ( $type, $prefix, $config );
 		return $table;
 	}
-	
+
 }
 
 ?>
