@@ -1,19 +1,19 @@
-/**
+@charset "utf-8";/**
  * @author vonFio.de
  * @copyright Copyright (C) 2012
  */
- 
-@charset "utf-8";
+
+
 
 p , dd { height: 150%; line-height: 150%;  }
 #jl_content p, address  { padding-bottom: 8px; }
 
 /**
- * 
- * 
+ *
+ *
  *											Font Size
- * 
- * 
+ *
+ *
  */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, hr, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video, .tip-title{ font-size: 100%; }
 
@@ -21,7 +21,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 #jl_mainmenu a, #jl_mainmenu .separator, .toggleMainmenu, .toggleSubmenu, #jl_submenu.responsive_menu li a {  font-size: 14px;}
 #jl_mainmenu li li a, #jl_mainmenu li li .separator { font-size: 13px; }
 #jl_submenu li a, #jl_submenu li.active li a,#jl_submenu li .separator, #jl_submenu li.active li .separator,
-#jl_toolbar ul.menu li a, #jl_toolbar ul.menu li .separator, #jl_toolbar ul.menu li.active li a { font-size: 12px; } 
+#jl_toolbar ul.menu li a, #jl_toolbar ul.menu li .separator, #jl_toolbar ul.menu li.active li a { font-size: 12px; }
 #jl_topmenu li a, #jl_topmenu li .separator { font-size: 85%; }
 
 /* Headline */
@@ -34,51 +34,51 @@ h6 { font-size: 85%; }
 
 #jl_content form legend
 { font-size: 115%;}
-.jl_module h3, #jl_header h3, #jl_topmenu .jl_small h3, #jl_search input.inputbox 
+.jl_module h3, #jl_header h3, #jl_topmenu .jl_small h3, #jl_search input.inputbox
 { font-size: 110%; }
 blockquote
 { font-size: 105%;}
 .jl_module ul li li , .jl_module ul li li li
-{ font-size: 100%; } 
+{ font-size: 100%; }
 .jl_module , .jl_module p , .jl_module td , .jl_module ul li, .category-list, .category-list p, .category-list li
-{ font-size: 95%; } 
+{ font-size: 95%; }
 #jl_article p, #jl_article, #jl_article h3, #jl_pathway, #jl_pathway span, #jl_pathway a, #jl_footer, .readmore, .tip-text, .article-info dd, #jl_footer_left
 { font-size: 90%; }
 .breadcrumbs, #jl_toolbar p, ul.pagenav .pagenav-prev  a, ul.pagenav .pagenav-next a, .login, small, .small
-{ font-size: 85%;} 
+{ font-size: 85%;}
 /**
- * 
- * 
+ *
+ *
  *											Headlines
- * 
- * 
+ *
+ *
  */
- 
+
 h1, h2, h3, h4, h5, h6 { line-height: 150%; }
 h4, h5, h6 { font-weight: bold; }
-a:link , a:visited, ul.menu span.separator, h1 a, h2 a, h3 a, h4 a, h5 a { text-decoration: none; } 
+a:link , a:visited, ul.menu span.separator, h1 a, h2 a, h3 a, h4 a, h5 a { text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 #jl_content h1, #jl_content h2 { color: #666666;  padding: 5px 0px; }
 .blog-featured h2, .item h2, #jl_content h3, #jl_content h4, #jl_content h5 { padding: 3px 0 12px 0; }
 .jl_module h3, #jl_header h3, #jl_topmenu .jl_small h3 { font-family:  'Carrois Gothic', Verdana, Geneva, sans-serif;	font-weight: normal;text-transform: uppercase;background-repeat: repeat-x; padding: 3px 0 4px 0;margin: 7px 0;text-align: left;border-radius: 3px; }
 .jl_module .moduletableround h3 {margin: 0 0 10px 0;padding: 6px 10px 4px 10px;}
-.jl_sidebar h3, .jl_under_content h3{ padding: 6px 0 4px 10px; } 
+.jl_sidebar h3, .jl_under_content h3{ padding: 6px 0 4px 10px; }
 #jl_topmenu .jl_small h3 { padding: 0 0 4px 0;margin: 0;}
 
 /**
- * 
- * 
+ *
+ *
  *											Article Stuff
- * 
- * 
+ *
+ *
  */
 
 img {max-width: 100%;margin: 10px 10px;width: auto;}
 .edit img, .actions img {max-width: 100%;margin: 0 !important; padding: 0; width: auto;}
 hr {  margin: 10px 0; background: none; border: none; border-bottom: 1px solid #DDD; }
 ul, ol  { padding: 10px 0 10px 20px; margin: 0; }
-ul  { list-style-type: square; } 
+ul  { list-style-type: square; }
 
 #jl_container_main li { margin-left: 10px; padding-left: 5px; height: 150%; line-height: 150%;  }
 
@@ -112,7 +112,7 @@ strong {  font-weight: bold; }
 abbr { border-bottom: 1px dotted #999999; cursor: help; }
 address { font-style: normal; line-height: 120%; }
 blockquote {padding: 5px 20px;	font-style: normal; border-left: 4px solid #EEE; margin: 10px 0;}
-blockquote small:before{ content: "— "; }
+blockquote small:before{ content: "- "; }
 
 dl { padding: 10px 0;}
 dt { font-weight: bold; padding: 0 0 8px 0;}
@@ -120,24 +120,24 @@ dt.result-title {border-top: 1px solid #EEE; padding: 10px 0 0 0;}
 dd {padding: 0 0 8px 15px;}
 dl.dl-horizontal dd { padding: 0 0 8px 0;}
 /**
- * 
- * 
+ *
+ *
  *											Readmore
- * 
- * 
+ *
+ *
  */
 .readmore { background: url(../images/indent4.png) no-repeat left;	padding: 2px 6px 2px 10px;	margin: 10px 0 0 0;}
 .jl_module .readmore {background-color: transparent;background: none;float: none;padding: 7px 0 0 0;}
 .edit .readmore {background-color: transparent;	background: none;float: none;padding: 0; margin:0;}
 
 /**
- * 
- * 
+ *
+ *
  *											Pagenav
- * 
- * 
+ *
+ *
  */
- 
+
 ul.pagenav {clear: both;padding: 30px 0 0 0 ;}
 ul.pagenav .pagenav-prev {float: left;}
 ul.pagenav .pagenav-next {float: right;}
@@ -150,18 +150,18 @@ ul.pagenav .pagenav-prev  a, ul.pagenav .pagenav-next a {text-decoration: none;c
 .pagination ul li {	display: inline;padding: 3px 7px;border: 1px solid #CCC;margin: 0 3px;}
 
 /**
- * 
- * 
+ *
+ *
  *											Category
- * 
- * 
+ *
+ *
  */
 
 .cat-children, .item-separator, .jl_content-links {	clear: both;}
 .cat-children .last {padding: 0 0 15px 0;}
 .cat-children li {padding: 0 0 15px 0;}
 .categories-list ul {padding: 0; list-style: none; border-left: 1px solid #EEE; margin: 8px 3px;}
-.categories-list li {  padding: 3px 15px 0 15px; margin-left: 10px; line-height: 100%; height: 100%; } 
+.categories-list li {  padding: 3px 15px 0 15px; margin-left: 10px; line-height: 100%; height: 100%; }
 .category-desc, .item {padding: 0;}
 .cat-list-row1 { }
 
@@ -172,18 +172,18 @@ ul.pagenav .pagenav-prev  a, ul.pagenav .pagenav-next a {text-decoration: none;c
 #jl_content table {	width: 100%;border-spacing: 0;border-collapse: collapse;}
 #jl_content table th {background-color: #999999;text-align: left;padding: 5px 8px;}
 #jl_content table th  a, #jl_content table th {	color: #FFFFFF !important;}
-#jl_content table td  { padding: 8px 8px; } 
+#jl_content table td  { padding: 8px 8px; }
 #jl_content .edit table td  { padding: 0 !important; }
-#jl_content form tbody tr:hover {background-color: #F5F5F5;} 
+#jl_content form tbody tr:hover {background-color: #F5F5F5;}
 
 .panel { padding: 0 0 16px 0; }
 
 /**
- * 
- * 
+ *
+ *
  *											Form
- * 
- * 
+ *
+ *
  */
 #jl_content fieldset , #jl_content form { margin: 0 0 10px 0; }
 #jl_content form legend {background-color: #F7F7F7; color: #666666;	margin-bottom: 15px; padding: 5px 5%; width: 90%;}
@@ -201,15 +201,15 @@ input[type=reset]:hover {background-color: #E1E1E1;}
 legend {line-height: 200%;height: 200%;}
 .login-fields {	width: 100%;}
 .login-fields label, #mailto-window label, .edit label {width: 30%;	float: left;line-height: 230%;}
-p#form-login-username label, p#form-login-password label, .edit .formelm  {	width: 100%;float: left;	line-height: 230%;} 
+p#form-login-username label, p#form-login-password label, .edit .formelm  {	width: 100%;float: left;	line-height: 230%;}
 .edit .button2-left {float: left;	padding: 10px;}
- 
+
 /**
- * 
- * 
+ *
+ *
  *											Hightlight Boxes
- * 
- * 
+ *
+ *
  */
 .approved, .attention, .notice, .alert  {border-width: 1px;	border-style: solid;border-radius: 5px;	padding: 5px 10px;margin: 0 0 10px 0;}
 .approved  {background-color: #D1F1BC;	border-color: #66CC00;}
@@ -219,13 +219,13 @@ p#form-login-username label, p#form-login-password label, .edit .formelm  {	widt
 .hightlight-text , .highlight, #system-message-container {	background-color: #FFC;	padding: 0 4px;}
 
 /**
- * 
- * 
+ *
+ *
  *											Tooltips
- * 
- * 
+ *
+ *
  */
 .tip-wrap{ z-index: 10000;}
-.tip { float: left; background: #ffc; border: 1px solid #D4D5AA; padding: 5px; max-width: 200px;}
+.tip { float: left; background: #ffc; border: 1px solid #D4D5AA; padding: 5px; }
 .tip-title {  padding: 0; margin: 0; font-weight: bold;  margin-top: -15px; padding-top: 15px;   padding-bottom: 5px; background: url(../images/selector-arrow.png) no-repeat; }
-.tip-text { margin: 0;}
+.tip-text { margin: 0; }

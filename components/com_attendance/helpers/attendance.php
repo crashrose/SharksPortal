@@ -233,4 +233,15 @@ class attendanceHelper {
         return $results[0] -> count;
     }
 
+    public static function location_tooltip($item){
+        $tooltip_text = $item->name.'::';
+        $tooltip_text .= $item->loc_address_1.'<BR>';
+        $tooltip_text .= $item->loc_address_2==''? '' : $item->loc_address_2.'<BR>';
+        $tooltip_text .= $item->loc_city==''? '' : $item->loc_city. ', ';
+        $tooltip_text .= $item->loc_state==''? '' : $item->loc_state;
+        $tooltip_text .= $item->loc_zip==0? '' : ' ' . $item->loc_zip. '<BR>';
+        $tooltip_text .= $item->loc_website==''? '' : '<BR>Website: '.$item->loc_website;
+        $tooltip_text .= $item->loc_note==''? '' : '<BR>Note: '.$item->loc_note;
+           return $tooltip_text;
+    }
 }

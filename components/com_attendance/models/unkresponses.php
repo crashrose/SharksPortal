@@ -6,10 +6,10 @@ jimport('joomla.application.component.modellist');
 /**
  * attendance Model
  */
- 
+
 class attendanceModelUnkResponses extends JModelList
 {
-	
+
 	protected $searchInFields = array (
 			'loc.loc_name'
 			,'type.event_type_name'
@@ -25,13 +25,13 @@ class attendanceModelUnkResponses extends JModelList
          *
          * @return      string  An SQL query
          */
-		 
+
         protected function getListQuery()
         {
-        	
+
         	$user = JFactory::getUser();
-        	
-                // Create a new query object.           
+
+                // Create a new query object.
                 $db = JFactory::getDBO();
                 $query = $db->getQuery(true);
                 // Select some fields
@@ -39,7 +39,8 @@ class attendanceModelUnkResponses extends JModelList
                 		, event.event_date, date_format(event_date,\'%Y-%m\') As event_month
                 		, time.time_val as event_time, event.id as event_id, user.name as user_name
                 		, user.id as user_id, responses.rsvp_reason, responses.rsvp_status, responses.rsvp_date_submitted
-                		, responses.rsvp_details, loc.loc_name, loc.loc_maplink, event.event_respond_by');
+                		, responses.rsvp_details, loc.loc_name, loc.loc_address_1, loc.loc_address_2, loc.loc_city, loc.loc_state
+                		, loc.loc_zip, loc.loc_note, loc.loc_website, loc.loc_maplink, event.event_respond_by');
                 // From the schedule views table
                 $query->from('#__sched_events event');
 				$query->join('INNER','#__sched_event_mand_grps event_grps on event.id = event_grps.event_id');
@@ -54,9 +55,9 @@ class attendanceModelUnkResponses extends JModelList
 // 				$query->where('responses.id is null and user.id = '.$user->id);
 // 				$query->order('event_date ASC');
 
-				
+
 				$rsvp_cmpl= $db->escape($this->getState('filter.rsvp_cmpl'));
-				
+
 				switch ($rsvp_cmpl){
 					case null:
 						$where_text = "";
@@ -70,7 +71,7 @@ class attendanceModelUnkResponses extends JModelList
 
 						$where_text = "";
 						$where_text = 'user.id = '.$user->id . ' AND ( responses.id is null OR (rsvp_active=1 and rsvp_status=-1))';
-						
+
 						break;
 					case "COMPLETE":
 
@@ -99,40 +100,40 @@ class attendanceModelUnkResponses extends JModelList
                         $regex=' REGEXP '.$db->quote($regex);
                         $query->where('('.implode($regex.' OR ',$this->searchInFields).$regex.')');
                 }
-                
-				$query->where($where_text);	
+
+				$query->where($where_text);
 				$query->order($db->escape($this->getState('list.ordering', 'event_date')).' '.
 						$db->escape($this->getState('list.direction', 'ASC')));
-				
+
 				$this->setState('list.limit', 1000000);
 				return $query;
-				
+
         }
         protected function populateState($ordering = null, $direction = null)
         {
         	// Initialise variables.
         	$app = JFactory::getApplication();
-        
+
         	// Load the filter state.
         	$search = $this->getUserStateFromRequest($this->context.'.filter.search', 'filter_search');
         	//Omit double (white-)spaces and set state
         	$this->setState('filter.search', preg_replace('/\s+/',' ', $search));
-        
+
         	//Filter response cmpl status
         	$state = $this->getUserStateFromRequest($this->context.'.filter.rsvp_cmpl', 'filter_response_complete', '', 'string');
         	$this->setState('filter.rsvp_cmpl', $state);
-        	
+
         	//Filter response cmpl status
         	$state = $this->getUserStateFromRequest($this->context.'.filter.event_month', 'filter_event_month', '', 'string');
         	$this->setState('filter.event_month', $state);
-        	
+
         	//Remove pagination
         	$this->setState('list.limit', 1000000);
-        
+
         	//Takes care of states: list. limit / start / ordering / direction
         	parent::populateState('event_date', 'asc');
         }
-        
+
 
 
 

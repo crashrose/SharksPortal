@@ -80,7 +80,10 @@ $item->has_response= $item->rsvp_status!=''?1:0;
 <!-- 	    RSVP Event Location -->
 		<td colspan="2" class="rsvp_loc rsvp_bottom">
 			<h3>Location:</h3>
-			<?php echo $item->loc_html; ?>
+			<?php
+                echo '<span class="hasTip" title="'.AttendanceHelper::location_tooltip ($item).'">'.$item->loc_html.'</span>';
+            ?>
+
 		</td>
 	</tr>
 </tr>
