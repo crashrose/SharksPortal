@@ -15,34 +15,34 @@ jimport('joomla.form.helper');
 class attendanceHelper {
     public static function yes_no_box($i, $id, $status, $disabled) {
         $yes_class = $disabled == '' ? ' class="att_yes_radio" ' : '';
+            $yes_checked = "";
+            $no_checked = "";
+            $unsure_checked = "";
+            $nothing_checked = "";
         switch ($status) {
             case null :
-                $yes_checked = "";
-                $no_checked = "";
-                $unsure_checked = "checked";
+                $nothing_checked = " checked ";
                 break;
             case 0 :
-                $yes_checked = "";
-                $no_checked = "checked";
-                $unsure_checked = "";
+                $no_checked = " checked ";
                 break;
             case 1 :
-                $yes_checked = "checked";
-                $no_checked = "";
-                $unsure_checked = "";
+                $yes_checked = " checked ";
                 break;
             case -1 :
-                $yes_checked = "";
-                $no_checked = "";
-                $unsure_checked = "checked";
+                $unsure_checked = " checked ";
                 break;
             default :
-                $yes_checked = "";
-                $no_checked = "";
-                $unsure_checked = "checked";
+                $nothing_checked = " checked ";
                 break;
         }
-        $lines = array('<input  ' . $disabled . $yes_class . 'name="rsvp_status[' . $i . ']"' . $yes_checked . ' type="radio" id="status_' . $id . '_Y" value="1" onclick="$(\'rsvp_details_' . $id . '\' ).hide();$(\'rsvp_expl_' . $id . '\' ).removeClass(\'required\');$(\'rsvp_reason_' . $id . '\' ).removeClass(\'required\');">Yes', '<BR><input  ' . $disabled . ' name="rsvp_status[' . $i . ']"' . $no_checked . ' type="radio" id="status_' . $id . '_N" value="0" onclick="$(\'rsvp_details_' . $id . '\' ).show();$(\'rsvp_expl_' . $id . '\' ).addClass(\'required\');$(\'rsvp_reason_' . $id . '\' ).addClass(\'required\');">No', '<BR><input  ' . $disabled . ' name="rsvp_status[' . $i . ']"' . $unsure_checked . ' type="radio" id="status_' . $id . '_U" value="-1" onclick="$(\'rsvp_details_' . $id . '\' ).show();$(\'rsvp_expl_' . $id . '\' ).removeClass(\'required\');$(\'rsvp_reason_' . $id . '\' ).removeClass(\'required\');">Unsure', );
+        $lines = array('<input  ' . $disabled . $yes_class . 'name="rsvp_status[' . $i . ']"' . $yes_checked . ' type="radio" id="status_' . $id . '_Y" value="1" onclick="$(\'rsvp_details_' . $id . '\' ).hide();$(\'rsvp_expl_' . $id . '\' ).removeClass(\'required\');$(\'rsvp_reason_' . $id . '\' ).removeClass(\'required\');">Yes'
+        , '<BR><input  ' . $disabled . ' name="rsvp_status[' . $i . ']"' . $no_checked . ' type="radio" id="status_' . $id . '_N" value="0" onclick="$(\'rsvp_details_' . $id . '\' ).show();$(\'rsvp_expl_' . $id . '\' ).addClass(\'required\');$(\'rsvp_reason_' . $id . '\' ).addClass(\'required\');">No'
+        , '<BR><input  ' . $disabled . ' name="rsvp_status[' . $i . ']"' . $unsure_checked . ' type="radio" id="status_' . $id . '_U" value="-1" onclick="$(\'rsvp_details_' . $id . '\' ).show();$(\'rsvp_expl_' . $id . '\' ).removeClass(\'required\');$(\'rsvp_reason_' . $id . '\' ).removeClass(\'required\');">Unsure'
+        , '    <input  ' . $disabled . ' style="display: none;" name="rsvp_status[' . $i . ']"' . $nothing_checked . ' type="radio" id="status_' . $id . '_X" value="-2" onclick="$(\'rsvp_details_' . $id . '\' ).hide();$(\'rsvp_expl_' . $id . '\' ).removeClass(\'required\');$(\'rsvp_reason_' . $id . '\' ).removeClass(\'required\');">'
+        , '<BR><a href="javascript:void(0);" onclick="'.AttendanceHelper::clear_response($status, $id).'">Clear</a>'
+        );
+
         $lines = implode("\n", $lines);
         $lines = $disabled ? $lines . '<input type="hidden" name="rsvp_status[]" default=' . $status . ' value="' . $status . '" />' : $lines;
 
@@ -52,7 +52,7 @@ class attendanceHelper {
     public static function RSVP_reason($id, $rsvp_reason, $disabled, $required) {
         // Create the batch selector to change the client on a selection list.
         $yes_class = $disabled == '' ? ' att_yesable ' : '';
-        $lines = array('<select ' . $disabled . ' name="rsvp_reason[]" class="att_reason inputbox ' . $yes_class . $required . '" id="rsvp_reason_' . $id . '">', '<option value="0"> - Reason - </option>', JHtml::_('select.options', self::reasonlist(), 'value', 'rsvp_reason', $rsvp_reason), '</select>');
+        $lines = array('<select ' . $disabled . ' name="rsvp_reason[]" class="att_reason inputbox ' . $yes_class . $required . '" id="rsvp_reason_' . $id . '">', '<option value=""> - Reason - </option>', JHtml::_('select.options', self::reasonlist(), 'value', 'rsvp_reason', $rsvp_reason), '</select>');
         $lines = implode("\n", $lines);
         $lines = $disabled ? $lines . '<input type="hidden" name="rsvp_reason[]" default=' . $rsvp_reason . ' value="' . $rsvp_reason . '" />' : $lines;
 
@@ -244,4 +244,27 @@ class attendanceHelper {
         $tooltip_text .= $item->loc_note==''? '' : '<BR>Note: '.$item->loc_note;
            return $tooltip_text;
     }
+
+    public static function clear_response($rsvp_status, $id){
+
+                switch ($rsvp_status) {
+            case null :
+                $onclick= '$(\'status_' . $id . '_X\').click()';
+                break;
+            case -1 :
+                $onclick= '$(\'status_' . $id . '_U\').click()';
+                break;
+            case 0:
+                $onclick= '$(\'status_' . $id . '_N\').click()';
+                break;
+             case 1:
+                $onclick= '$(\'status_' . $id . '_Y\').click()';
+                break;
+            default :
+                $onclick= '$(\'status_' . $id . '_X\').click()';
+                break;
+        }
+return $onclick;
+    }
 }
+

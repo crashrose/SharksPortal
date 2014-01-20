@@ -74,7 +74,7 @@ class attendanceControllerCreateResponses extends JControllerLegacy {
 // 			echo $item ['rsvp_status_old'] .' : '. $item ['rsvp_status'] . '<BR>';
 // 			echo $item ['rsvp_reason_old'] .' : '. $item ['rsvp_reason'] . '<BR>';
 // 			echo $item ['rsvp_details_old'] .' : '. $item ['rsvp_details'] . '<BR>';
-			$default_record = $item ['rsvp_status_old'] =='' && $item ['rsvp_reason']==0 && $item ['rsvp_details']==''&& $item ['rsvp_status']=="-1"?1:0;
+			$default_record = $item ['rsvp_status'] ==-2?1:0;
 // 			echo 'record: ' .$item ['rsvp_event'] . 'no change: '. $no_change . '<BR> $default_record: ' . $default_record . '<BR>----<BR>';
 			if (!$no_change && !$default_record)
 			{

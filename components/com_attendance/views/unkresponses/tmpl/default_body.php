@@ -54,7 +54,7 @@ $item->has_response= $item->rsvp_status>-1?1:0;
 				$required=' required ';
 				break;
 			case - 1 :
-				$rsvp_details_pane = $item->rsvp_details == null && $item->rsvp_reason == 0? ' style="display:none;" ' : ' style="display:block;" ';
+				$rsvp_details_pane = ' style="display:block;" ';
 				$required='';
 				break;
 			default :
