@@ -42,7 +42,7 @@ function auf(key) {
 
 
 
-/* Suckerfish */
+/* Suckerfish 
 
 sfHover = function() {
 	var sfEls = document.getElementById("navigation").getElementsByTagName("LI");
@@ -55,4 +55,4 @@ sfHover = function() {
 		}
 	}
 }
-if (window.attachEvent) window.attachEvent("onload", sfHover); 
+if (window.attachEvent) window.attachEvent("onload", sfHover); */
