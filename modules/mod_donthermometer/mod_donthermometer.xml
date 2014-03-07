@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension  type="module" version="1.7.0" client="site" method="upgrade">
+	<name>Donations Thermometer</name>
+	<author>Jodee Millman</author>
+	<creationDate>19-Dec-2013</creationDate>
+	<copyright>Jodee Millman</copyright>
+	<license>Creative Commons</license>
+	<authorEmail>jodee888@gmail.com</authorEmail>
+	<authorUrl>http://www.destinychurchnelson.org</authorUrl>
+	<version>1.7.0</version>
+	<description>MOD_DONTHERMOMETER_REMEMBER_TO_EDIT_MODULE_SETTINGS</description>
+	
+	<!-- supported languages -->
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_donthermometer.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.mod_donthermometer.ini</language>
+        <language tag="nl-NL">nl-NL/nl-NL.mod_donthermometer.ini</language>
+	</languages>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="goal1" type="text" default="10000" label="MOD_DONTHERMOMETER_GOAL1_LABEL" description="MOD_DONTHERMOMETER_GOAL1_DESC" />
+				<field name="current1" type="text" default="2000" label="MOD_DONTHERMOMETER_CURRENT1_LABEL" description="MOD_DONTHERMOMETER_CURRENT1_DESC" />
+				<field name="currency1" type="text" default="$" label="MOD_DONTHERMOMETER_CURRENCY1_LABEL" description="MOD_DONTHERMOMETER_CURRENCY1_DESC" />
+				<field name="goal2" type="text" default="" label="MOD_DONTHERMOMETER_GOAL2_LABEL" description="MOD_DONTHERMOMETER_GOAL2_DESC" />
+				<field name="current2" type="text" default="" label="MOD_DONTHERMOMETER_CURRENT2_LABEL" description="MOD_DONTHERMOMETER_CURRENT2_DESC" />
+				<field name="currency2" type="text" default="" label="MOD_DONTHERMOMETER_CURRENCY2_LABEL" description="MOD_DONTHERMOMETER_CURRENCY2_DESC" />
+				<field name="datename" type="text" default="Updated" label="MOD_DONTHERMOMETER_DATENAME_LABEL" description="MOD_DONTHERMOMETER_DATENAME_DESC" />
+				<field name="date1" type="text" default="27/1/2009" label="MOD_DONTHERMOMETER_DATE1_LABEL" description="MOD_DONTHERMOMETER_DATE1_DESC" />
+				<field name="height1" type="text" default="150" label="MOD_DONTHERMOMETER_HEIGHT1_LABEL" description="MOD_DONTHERMOMETER_HEIGHT1_DESC" />
+			</fieldset>
+			<fieldset name="advanced">
+				<field type="spacer" default="" label="MOD_DONTHERMOMETER_SPACER2_LABEL" description="MOD_DONTHERMOMETER_SPACER2_DESC" />
+				<field name="font1" type="text" default="arial" label="MOD_DONTHERMOMETER_FONT1_LABEL" description="MOD_DONTHERMOMETER_FONT1_DESC" />
+				<field name="fontsize2" type="text" default="10" label="MOD_DONTHERMOMETER_FONTSIZE2_LABEL" description="MOD_DONTHERMOMETER_FONTSIZE2_DESC" />
+				<field name="txcolor2" type="text" default="black" label="MOD_DONTHERMOMETER_TXCOLOR2_LABEL" description="MOD_DONTHERMOMETER_TXCOLOR2_DESC" />
+				<field name="addstyle2" type="text" default="" label="MOD_DONTHERMOMETER_ADDSTYLE2_LABEL" description="MOD_DONTHERMOMETER_ADDSTYLE2_DESC" />
+				
+				<field type="spacer" default="" label="MOD_DONTHERMOMETER_SPACER3_LABEL" description="MOD_DONTHERMOMETER_SPACER3_DESC" />
+				<field name="fontsize1" type="text" default="12" label="MOD_DONTHERMOMETER_FONTSIZE1_LABEL" description="MOD_DONTHERMOMETER_FONTSIZE1_DESC" />
+				<field name="txcolor1" type="text" default="white" label="MOD_DONTHERMOMETER_TXCOLOR1_LABEL" description="MOD_DONTHERMOMETER_TXCOLOR1_DESC" />
+				
+				<field type="spacer" default="" label="MOD_DONTHERMOMETER_SPACER4_LABEL" description="MOD_DONTHERMOMETER_SPACER4_DESC" />
+				<field name="pretext1" type="textarea" cols="20" rows="5" default="" label="MOD_DONTHERMOMETER_PRETEXT1_LABEL" description="MOD_DONTHERMOMETER_PRETEXT1_DESC" filter="raw" />
+				<field name="font2" type="text" default="arial" label="MOD_DONTHERMOMETER_FONT2_LABEL" description="MOD_DONTHERMOMETER_FONT2_DESC" />
+				<field name="fontsize3" type="text" default="12" label="MOD_DONTHERMOMETER_FONTSIZE3_LABEL" description="MOD_DONTHERMOMETER_FONTSIZE3_DESC" />
+				<field name="txcolor3" type="text" default="black" label="MOD_DONTHERMOMETER_TXCOLOR3_LABEL" description="MOD_DONTHERMOMETER_TXCOLOR3_DESC" />
+				<field name="addstyle1" type="text" default="" label="MOD_DONTHERMOMETER_ADDSTYLE1_LABEL" description="MOD_DONTHERMOMETER_ADDSTYLE1_DESC" />
+				
+				<field type="spacer" default="" label="MOD_DONTHERMOMETER_SPACER5_LABEL" description="MOD_DONTHERMOMETER_SPACER5_DESC" />
+				<field name="posttext1" type="textarea" cols="20" rows="5" default="copy and paste your own donation button code here (e.g. paypal etc) in html format" label="MOD_DONTHERMOMETER_POSTTEXT1_LABEL" description="MOD_DONTHERMOMETER_POSTTEXT1_DESC" filter="raw" />
+				<field name="font3" type="text" default="arial" label="MOD_DONTHERMOMETER_FONT3_LABEL" description="MOD_DONTHERMOMETER_FONT3_DESC" />
+				<field name="fontsize4" type="text" default="12" label="MOD_DONTHERMOMETER_FONTSIZE4_LABEL" description="MOD_DONTHERMOMETER_FONTSIZE4_DESC" />		
+				<field name="txcolor4" type="text" default="black" label="MOD_DONTHERMOMETER_TXCOLOR4_LABEL" description="MOD_DONTHERMOMETER_TXCOLOR4_DESC" />
+				<field name="addstyle3" type="text" default="" label="MOD_DONTHERMOMETER_ADDSTYLE3_LABEL" description="MOD_DONTHERMOMETER_ADDSTYLE3_DESC" />
+				
+				<field type="spacer" default="" label="MOD_DONTHERMOMETER_SPACER6_LABEL" description="MOD_DONTHERMOMETER_SPACER6_LABEL" />
+				<field name="barbgcolor" type="text" default="red" label="MOD_DONTHERMOMETER_BARBGCOLOR_LABEL" description="MOD_DONTHERMOMETER_BARBGCOLOR_DESC" />
+				<field name="barfgcolor" type="text" default="white" label="MOD_DONTHERMOMETER_BARFGCOLOR_LABEL" description="MOD_DONTHERMOMETER_BARFGCOLOR_DESC" />
+				<field name="bulbimage" type="radio" default="thermometerbulbmid.png" label="MOD_DONTHERMOMETER_BULBIMAGE_LABEL" description="MOD_DONTHERMOMETER_BULBIMAGE_DESC">
+					<option value="thermometerbulblight.png">MOD_DONTHERMOMETER_BULBIMG_LIGHT</option>
+					<option value="thermometerbulbmid.png">MOD_DONTHERMOMETER_BULBIMG_MEDIUM</option>
+					<option value="thermometerbulbdark.png">MOD_DONTHERMOMETER_BULBIMG_DARK</option>
+				</field>
+				
+				<field type="spacer" default="" label="MOD_DONTHERMOMETER_SPACER7_LABEL" description="MOD_DONTHERMOMETER_SPACER7_DESC" />
+				<field name="thermborder" type="radio" default="1" label="MOD_DONTHERMOMETER_THERMBORDER_LABEL" description="MOD_DONTHERMOMETER_THERMBORDER_DESC">
+					<option value="0">JMOD_DONTHERMOMETER_NO</option>
+					<option value="1">JMOD_DONTHERMOMETER_YES</option>
+				</field>
+				<field name="thermbordertype" type="radio" default="dashed" label="MOD_DONTHERMOMETER_THERMBORDERTYPE_LABEL" description="MOD_DONTHERMOMETER_THERMBORDERTYPE_DESC">
+					<option value="dashed">MOD_DONTHERMOMETER_BORDERTYPE_DASHED</option>
+					<option value="dotted">MOD_DONTHERMOMETER_BORDERTYPE_DOTTED</option>
+					<option value="solid">MOD_DONTHERMOMETER_BORDERTYPE_SOLID</option>
+				</field>
+				<field name="thermbordercolor" type="text" default="gray" label="MOD_DONTHERMOMETER_THERMBORDERCOLOR_LABEL" description="MOD_DONTHERMOMETER_THERMBORDERCOLOR_DESC" />
+				
+				<field type="spacer" default="" label="MOD_DONTHERMOMETER_SPACER8_LABEL" description="MOD_DONTHERMOMETER_SPACER8_DESC" />
+				<field name="moduleclass_sfx" type="text" default="" label="MOD_DONTHERMOMETER_MODULECLASS_LABEL" description="MOD_DONTHERMOMETER_MODULECLASS_DESC" />
+				<field name="cache" type="radio" default="0" label="MOD_DONTHERMOMETER_CACHE_LABEL" description="MOD_DONTHERMOMETER_CACHE_DESC">
+					<option value="0">JMOD_DONTHERMOMETER_NO</option>
+					<option value="1">JMOD_DONTHERMOMETER_YES</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+
+	<files>
+		<filename module="mod_donthermometer">mod_donthermometer.php</filename>
+		<filename>thermometertop.png</filename>
+		<filename>thermometermid.png</filename>
+		<filename>thermometerbulblight.png</filename>
+		<filename>thermometerbulbmid.png</filename>
+		<filename>thermometerbulbdark.png</filename>                          
+	</files>
+</extension>

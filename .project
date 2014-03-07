@@ -39,8 +39,5 @@
 	<natures>
 		<nature>com.aptana.editor.php.phpNature</nature>
 		<nature>com.aptana.projects.webnature</nature>
-		<nature>org.eclipse.php.core.PHPNature</nature>
-		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
-		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 	</natures>
 </projectDescription>
