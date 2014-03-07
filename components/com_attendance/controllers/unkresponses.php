@@ -22,19 +22,8 @@ class attendanceControllerUnkResponses extends JControllerAdmin
 		$model = parent::getModel($name, $prefix, array('ignore_request' => true));
 		return $model;
 	}
-// 	public function batch($model = null)
-// 	{
-// 		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
-	
-// 		// Set the model
-// 		$model	= $this->getModel('Response', '', array());
-	
-// 		// Preset the redirect
-// 		$this->setRedirect(JRoute::_('index.php?option=com_banners&view=UnkResponses' . $this->getRedirectToListAppend(), false));
-	
-// 		return parent::batch($model);
-// 	}
-	
-	
+
+
+
 
 }

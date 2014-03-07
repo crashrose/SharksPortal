@@ -1,3 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?><extension type="component" version="2.5.0" method="upgrade">         <name>Attendance</name>        <!-- The following elements are optional and free of formatting constraints -->        <creationDate>December 2013</creationDate>        <author>Katie Rose</author>        <authorEmail>crashrose@gmail.com</authorEmail>        <authorUrl></authorUrl>        <copyright>Copyright Info</copyright>        <license>License Info</license>        <!--  The version string is recorded in the components table -->        <version>0.0.1</version>        <!-- The description is optional and defaults to the name -->        <description>This component allows you to create events and track attendance.</description>         <install> <!-- Runs on install -->                <sql>                        <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>                </sql>        </install>        <update> <!-- Runs on update; New in 2.5 -->                <schemas>                        <schemapath type="mysql">sql/updates/mysql</schemapath>                </schemas>        </update>         <!-- Site Main File Copy Section -->        <!-- Note the folder attribute: This attribute describes the folder                to copy FROM in the package to install therefore files copied                in this section are copied from /site/ in the package -->        <files folder="site">                <filename>index.html</filename>                <filename>attendance.php</filename>                <filename>controller.php</filename>                <folder>views</folder>				<folder>models</folder>				<folder>language</folder>				<folder>helpers</folder>				<folder>controllers</folder>				<folder>css</folder>        </files> 	<languages folder="site">
-		<language tag="en-GB">language/en-GB/en-GB.com_attendance.ini</language>
-	</languages>        <administration>                <!-- Administration Menu Section -->                <menu>Attendance</menu>		<submenu>			<!--				Note that all & must be escaped to &amp; for the file to be valid				XML and be parsed by the installer			-->			<menu view="events" link="option=com_attendance&amp;view=events" alt="Manage Events">com_attendance_events</menu>			<menu view="locations" link="option=com_attendance&amp;view=locations" alt="Manage Events">com_attendance_locations</menu>			<menu view="types" link="option=com_attendance&amp;view=types" alt="Manage Events">com_attendance_types</menu>		</submenu>                <files folder="admin">                        <!-- Admin Main File Copy Section -->                        <filename>index.html</filename>                        <filename>attendance.php</filename>                        <filename>controller.php</filename>                        <filename>config.xml</filename>                        <filename>access.xml</filename>                        <!-- SQL files section -->                        <folder>sql</folder>						<folder>tables</folder>						<folder>models</folder>						<folder>views</folder>						<folder>controllers</folder>						<folder>helpers</folder>                </files>                <languages folder="admin">	                        <language tag="en-GB">language/en-GB/en-GB.com_attendance.ini</language>                        <language tag="en-GB">language/en-GB/en-GB.com_attendance.sys.ini</language>                </languages>        </administration> </extension>
+<?xml version="1.0" encoding="utf-8"?><extension type="component" version="2.5.0" method="upgrade">	<name>Attendance</name>        <!-- The following elements are optional and free of formatting constraints -->	<creationDate>December 2013</creationDate>	<author>Katie Rose</author>	<authorEmail>crashrose@gmail.com</authorEmail>	<authorUrl></authorUrl>	<copyright>Copyright Info</copyright>	<license>License Info</license>        <!-- The version string is recorded in the components table -->	<version>0.0.1</version>        <!-- The description is optional and defaults to the name -->	<description>This component allows you to create events and track		attendance.</description>	<install> <!-- Runs on install -->		<sql>			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>		</sql>	</install>	<update> <!-- Runs on update; New in 2.5 -->		<schemas>			<schemapath type="mysql">sql/updates/mysql</schemapath>		</schemas>	</update>         <!-- Site Main File Copy Section -->        <!-- Note the folder attribute: This attribute describes the folder to copy 		FROM in the package to install therefore files copied in this section are 		copied from /site/ in the package -->	<files folder="site">		<filename>index.html</filename>		<filename>attendance.php</filename>		<filename>controller.php</filename>		<folder>views</folder>		<folder>models</folder>		<folder>language</folder>		<folder>helpers</folder>		<folder>controllers</folder>		<folder>css</folder>	</files>	<languages folder="site">
+		<language tag="en-GB">language/en-GB/en-GB.com_attendance.ini</language>
+	</languages>
+	<administration>                <!-- Administration Menu Section -->
+		<menu>Attendance</menu>
+		<submenu>			<!-- Note that all & must be escaped to &amp; for the file to be valid XML 
+				and be parsed by the installer -->
+			<menu view="events" link="option=com_attendance&amp;view=events"
+				alt="Manage Events">com_attendance_events</menu>
+			<menu view="locations" link="option=com_attendance&amp;view=locations"
+				alt="Manage Events">com_attendance_locations</menu>
+			<menu view="types" link="option=com_attendance&amp;view=types"
+				alt="Manage Events">com_attendance_types</menu>
+		</submenu>
+		<files folder="admin">                        <!-- Admin Main File Copy Section -->
+			<filename>index.html</filename>
+			<filename>attendance.php</filename>
+			<filename>controller.php</filename>
+			<filename>config.xml</filename>
+			<filename>access.xml</filename>                        <!-- SQL files section -->
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>models</folder>
+			<folder>views</folder>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_attendance.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_attendance.sys.ini</language>
+		</languages>
+	</administration>
+</extension>

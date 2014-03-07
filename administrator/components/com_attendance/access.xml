@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<access component="com_attendance">
-        <section name="component">
-                <action name="core.admin" title="JACTION_ADMIN" description="JACTION_ADMIN_COMPONENT_DESC" />
-                <action name="core.manage" title="JACTION_MANAGE" description="JACTION_MANAGE_COMPONENT_DESC" />
-        </section>
-</access>
+<?xml version="1.0" encoding="utf-8"?><access component="com_banners">	<section name="component">		<action name="core.admin" title="JACTION_ADMIN" description="JACTION_ADMIN_COMPONENT_DESC" />		<action name="core.manage" title="JACTION_MANAGE" description="JACTION_MANAGE_COMPONENT_DESC" />		<action name="core.create" title="JACTION_CREATE" description="JACTION_CREATE_COMPONENT_DESC" />		<action name="core.delete" title="JACTION_DELETE" description="JACTION_DELETE_COMPONENT_DESC" />		<action name="core.edit" title="JACTION_EDIT" description="JACTION_EDIT_COMPONENT_DESC" />		<action name="core.edit.state" title="JACTION_EDITSTATE" description="JACTION_EDITSTATE_COMPONENT_DESC" />		<action name="attendance.edit_own" title="Attendance: Edit Own" description="Can this user add/update own responses" />		<action name="attendance.edit_all" title="Attendance: Edit All" description="Can this user add/update ALL responses" />		<action name="attendance.view_all" title="Attendance: View All" description="Can this user view ALL responses" />		<action name="attendance.approver" title="Attendance: Approver" description="Can this user approve/reject responses" />	</section></access>

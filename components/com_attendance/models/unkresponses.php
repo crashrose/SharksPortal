@@ -38,6 +38,7 @@ class attendanceModelUnkResponses extends JModelList
                 $query->select('distinct event.event_name, type.event_type_name as event_type
                 		, event.event_date, date_format(event_date,\'%Y-%m\') As event_month
                 		, time.time_val as event_time, event.id as event_id, user.name as user_name
+                		, concat(event.id, \'_\', user.id) as event_user
                 		, user.id as user_id, responses.rsvp_reason, responses.rsvp_status, responses.rsvp_date_submitted
                 		, responses.rsvp_details, loc.loc_name, loc.loc_address_1, loc.loc_address_2, loc.loc_city, loc.loc_state
                 		, loc.loc_zip, loc.loc_note, loc.loc_website, loc.loc_maplink, event.event_respond_by');
@@ -61,7 +62,7 @@ class attendanceModelUnkResponses extends JModelList
 				switch ($rsvp_cmpl){
 					case null:
 						$where_text = "";
-						$where_text = 'responses.id is null and user.id = '.$user->id;
+						$where_text = 'user.id = '.$user->id .  ' and (rsvp_active =1 or rsvp_active is null)';
 						break;
 					case "ALL":
 						$where_text = "";
@@ -79,9 +80,8 @@ class attendanceModelUnkResponses extends JModelList
 						$where_text = 'user.id = '.$user->id .  ' and rsvp_active =1';
 						break;
 					default:
-
 						$where_text = "";
-						$where_text = 'responses.id is null and user.id = '.$user->id;
+						$where_text = 'user.id = '.$user->id .  ' and (rsvp_active =1 or rsvp_active is null)';
 						break;
 				}
 				$event_month= $db->escape($this->getState('filter.event_month'));

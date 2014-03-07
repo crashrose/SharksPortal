@@ -5,13 +5,15 @@ defined ( '_JEXEC' ) or die ( 'Restricted Access' );
 foreach ( $this->items as $i => $item ) :
 	?>
 		<?php
-		$item_display = $item->group_type == 'event_date'?
-		date("D. M j, Y",strtotime($item->group_name)) 
-		: $item->group_name;
+		$item_display =
+//		 $item->group_type == 'event_date'?
+//		date("D. M j, Y",strtotime($item->group_name)) 
+//		: 
+		$item->group_val;
 		 ?>
 <tr class="attrow<?php echo $i % 2; ?>">
 <!-- Group Value Name -->
-	<td><a href="<?php echo JRoute::_('index.php?option=com_attendance&view=countresponses&group_val='.$item->group_val.'&val_type='.$item->group_type); ?>">
+	<td><a href="<?php echo JRoute::_('index.php?option=com_attendance&view=responsesforitem&filter_id='.$item->group_id.'&filter_type='.$item->group_type); ?>">
 	<?php echo $item_display; ?></a>
 	</td>
 <!-- 	RSVP None -->

@@ -13,8 +13,10 @@ JHtml::_ ( 'behavior.tooltip' );
 JHtml::_ ( 'behavior.formvalidation' );
 
 $document = JFactory::getDocument();
+$document->addScriptDeclaration('jQuery.noConflict();');
 $document->addStyleSheet('components/com_attendance/css/attendance.css');
 JHtml::script(Juri::base() . '/components/com_attendance/views/unkresponses/submitbutton.js', $mootools);
+
 
 $document->addScriptDeclaration('
 function rsvp_all_yes(){
@@ -44,7 +46,6 @@ function tableOrdering( order, dir, task )
 ');
 
 ?>
-
 <form action="<?php echo JRoute::_('index.php?option=com_attendance&view=unkResponses'); ?>" method="post" name="adminForm" id="adminForm" class="form-validate">
 <table>
     <tr>
@@ -95,13 +96,15 @@ function tableOrdering( order, dir, task )
     <tfoot><?php echo $this->loadTemplate('foot');?></tfoot>
 </table>
 	<div>
-		<button type="button"  class="validate" onclick="Joomla.submitbutton('createResponses.process');">
+		<button type="button"  class="validate" onclick="Joomla.submitbutton('createResponses.process_response');">
             <?php echo JText::_('ATTENDANCE SUBMIT RESPONSES'); ?>
         </button>
+        <input type="hidden" id="response_required" value=""/>
         <input type="hidden" name="filter_order" value="<?php echo $this->sortColumn; ?>" />
         <input type="hidden" name="filter_order_Dir" value="<?php echo $this->sortDirection; ?>" />
 		<input type="hidden" name="task" value="" />
 		<input type="hidden" name="boxchecked" value="0" />
+		<input type="hidden" name="redirect_name" value="unkResponses" />
 		<?php echo JHtml::_('form.token'); ?>
 	</div>
 </form>

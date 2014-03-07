@@ -7,6 +7,7 @@ $item->has_response= $item->rsvp_status>-1?1:0;
 	$item->id = $item->event_id . '_' . $item->user_id;
 	$item->respond_by = date("n/j/Y",strtotime($item->event_respond_by)) == '1/1/1970'?$item->event_date:$item->event_respond_by;
 	$item->expired = $item->event_respond_by > 1 && $item->event_respond_by < date ( "Y-m-d H:i:s" ) ? ' disabled ' : '';
+	echo '<input type="hidden" name="list_view" default="user" value="user"/>';
 	echo '<input type="hidden" name="event_user[]" default=' . $item->id . ' value="' . $item->id . '" />';
 	echo '<input type="hidden" name="rsvp_event[]" default=' . $item->event_id . ' value="' . $item->event_id . '" />';
 	echo '<input type="hidden" name="rsvp_user[]" default=' . $item->user_id . ' value="' . $item->user_id . '" />';
@@ -22,7 +23,9 @@ $item->has_response= $item->rsvp_status>-1?1:0;
 <!-- RSVP Event Header: Date Time -->
 <tr class="attrow<?php echo $i % 2; ?>">
 	<td colspan="3" class="rsvp_head rsvp_top"><h3>
-		<?php echo date("D. M j, ",strtotime($item->event_date)) . ' ' . date("g:ia", strtotime($item->event_time));?>
+		<?php echo
+		'<a href="'.JRoute::_('index.php?option=com_attendance&view=ResponseDetails&list_view=user&id='.$item->rsvp_id.'&event_user='.$item->event_user).'">'
+		. date("D. M j, ",strtotime($item->event_date)) . ' ' . date("g:ia", strtotime($item->event_time)) .'</a>';?>
 	</h3><?php
 	echo $item->has_response==0
 		? '<p class="atturgent">Respond by: '. date("n/j/Y",strtotime($item->respond_by))
