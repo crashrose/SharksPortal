@@ -310,7 +310,7 @@ class attendanceHelper {
 	}
 
 	public static function display_review_status($item, $approve_this) {
-		$date_reviewed = $item -> rsvp_date_reviewed < 1 ? '' : date("n/j/y g:i:s A", $item -> rsvp_date_reviewed);
+		$date_reviewed = $item -> rsvp_date_reviewed < 1 ? '' : date ( "n/j/y g:i:s A" , strtotime($item -> rsvp_date_reviewed));
 		$button = '';
 		if (!($item -> rsvp_status === '0')) {
 			$text = '';
