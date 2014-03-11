@@ -8,10 +8,7 @@ jimport ( 'joomla.application.component.modellist' );
  */
 class attendanceModelCountResponses extends JModelList {
 	protected $searchInFields = array (
-			'event_type'
-			,'event_date'
-			,'event_loc'
-			,'user_name'
+			'user_name'
 			,'group_name'
 			,'rsvp_yes'
 			,'rsvp_no'
@@ -35,32 +32,23 @@ class attendanceModelCountResponses extends JModelList {
 		$db = JFactory::getDBO ();
 		$query = $db->getQuery ( true );
 		$subquery = $db->getQuery ( true );
-		$totalquery = $db->getQuery ( true );
 
 		$cmpl = $db->escape ( $this->getState ( 'filter.cmpl' ) );
 		$event_month = $db->escape ( $this->getState ( 'filter.event_month' ) );
-		$regex = str_replace ( ' ', '|', $this->getState ( 'filter.search' ) );
 		$group_by = $db->escape($this->getState('list.groupby'));
-		$group_val_filter = $db->escape($this->getState('filter.group_val'));
+// 		$group_val_filter = $db->escape($this->getState('filter.group_val'));
 		$group_type_filter = $db->escape($this->getState('filter.val_type'));
 
+		$this->populateSubQuery($subquery, $event_month);
+		$this->populateQuery($query, $group_by, $group_type_filter, $cmpl);
 
-		$this->populateSubQuery($subquery, $cmpl,$event_month, $regex, $group_val_filter, $group_type_filter);
-		$this->populateQuery($query, $group_by, $group_type_filter);
-		// Filter search // Extra: Search more than one fields and for multiple words
-		if (! empty ( $regex )) {
-			$regex = ' REGEXP ' . $db->quote ( $regex );
-			$subquery->where ( '(' . implode ( $regex . ' OR ', $this->searchInFields ) . $regex . ')' );
-		}
-		$query->from ( '(' . $subquery . ') all_event_users' );
-		$totalquery->select ('*');
-		$totalquery->from ('(' . $query . ') response_totals');
-
-		$totalquery->order($db->escape($this->getState('list.ordering', 'group_order')).' '.
+		$query->from ( '(' . $subquery . ') subQ ' );
+		$query->order($db->escape($this->getState('list.ordering', 'group_order')).' '.
 				$db->escape($this->getState('list.direction', 'ASC')));
-        	//Remove pagination
-        	$this->setState('list.limit', 1000000);
-		return $totalquery;
+
+		//Remove pagination
+		$this->setState('list.limit', 1000000);
+		return $query;
 	}
 	protected function populateState($ordering = null, $direction = null) {
 		// Initialise variables.
@@ -102,95 +90,169 @@ $this->setState ( 'list.groupby', $state );
 		// Takes care of states: list. limit / start / ordering / direction
 		parent::populateState ('group_order', 'asc' );
 	}
-	public function populateQuery(&$query, $group_by, $group_type_filter) {
-// 		$filter_info = $group_type_filter!=''?', filtered_val ':', 0 as filtered_val';
-				$query->select ( 'SUM(event_count) as total_events
-						, filtered_val
-				, SUM(rsvp_none) as rsvp_none
-				, SUM(rsvp_yes) as rsvp_yes
-				, SUM(rsvp_no) as rsvp_no
-				, SUM(rsvp_unsure) as rsvp_unsure'
-	);
+// 	public function populateQuery(&$query, $group_by, $group_type_filter) {
+// // 		$filter_info = $group_type_filter!=''?', filtered_val ':', 0 as filtered_val';
+// 				$query->select ( 'SUM(event_count) as total_events
+// 						, filtered_val
+// 				, SUM(rsvp_none) as rsvp_none
+// 				, SUM(rsvp_yes) as rsvp_yes
+// 				, SUM(rsvp_no) as rsvp_no
+// 				, SUM(rsvp_unsure) as rsvp_unsure'
+// 	);
 
-		switch ($group_by) {
-			case 'user_id' :
-				$query->select('user_name as group_val
-						, user_id as group_id
-						, user_name as group_order
-						, \'user\' as group_type
-						, \'User Name\' as group_type_eng' );
-				$query->group('user_name');
-				break;
-				case 'event_date' :
-					$query->select('event_string as group_val
-						, event_id as group_id
-						, event_date as group_order
-						, \'event\' as group_type
-						, \'Event Date\' as group_type_eng' );
-					$query->group('event_date');
-					break;
-			default :
-				$query->select('user_name as group_val
-						, user_id as group_id
-						, user_name as group_order
-						, \'user\' as group_type
-						, \'User Name\' as group_type_eng' );
-				$query->group('user_name');
-				$this->setState ( 'list.groupby', 'user_name' );
-				break;
-		}
-		return true;
-	}
-	public function populateSubQuery(&$subquery, $cmpl, $event_month, $regex, $group_val_filter, $group_type_filter) {
-		$subquery->select ( 'distinct event.event_name, event.id as event_id
-               	, user.name as user_name, user.id as user_id, CONCAT(event.id, \'_\', user.id) as event_user
-                , 1 as event_count, time.time_val
-                , concat(event_type_name, \' \', IF (time_val = \'TBD\', concat(date_format(event.event_date,\'%a %c/%e/%y\'), \' TBD\'), date_format(concat(event.event_date, \' \', time.time_val),\'%a %c/%e/%y %l:%i %p\'))) as event_string
-                , IF (time_val = \'TBD\', concat(date_format(event.event_date,\'%y/%m/%d\'), \' TBD\'), date_format(concat(event.event_date, \' \', time.time_val),\'%y/%m/%d %T\')) as event_date
-               	, IF(responses.id is null,1,0) as rsvp_none
-                , IF(responses.rsvp_status = 1,1,0) as rsvp_yes
-                , IF(responses.rsvp_status = 0,1,0) as rsvp_no
-                , IF(responses.rsvp_status = -1,1,0) as rsvp_unsure' );
+// 		switch ($group_by) {
+// 			case 'user_id' :
+// 				$query->select('user_name as group_val
+// 						, user_id as group_id
+// 						, user_name as group_order
+// 						, \'user\' as group_type
+// 						, \'User Name\' as group_type_eng' );
+// 				$query->group('user_name');
+// 				break;
+// 				case 'event_date' :
+// 					$query->select('event_string as group_val
+// 						, event_id as group_id
+// 						, event_date as group_order
+// 						, \'event\' as group_type
+// 						, \'Event Date\' as group_type_eng' );
+// 					$query->group('event_date');
+// 					break;
+// 			default :
+// 				$query->select('user_name as group_val
+// 						, user_id as group_id
+// 						, user_name as group_order
+// 						, \'user\' as group_type
+// 						, \'User Name\' as group_type_eng' );
+// 				$query->group('user_name');
+// 				$this->setState ( 'list.groupby', 'user_name' );
+// 				break;
+// 		}
+// 		return true;
+// 	}
+// 	public function populateSubQuery(&$subquery, $cmpl, $event_month, $regex, $group_val_filter, $group_type_filter) {
+// 		$subquery->select ( 'distinct event.id as event_id
+//                	, user.name as user_name, user.id as user_id, CONCAT(event.id, \'_\', user.id) as event_user
+//                 , 1 as event_count, time.time_val
+//                 , concat(event_type_name, \' \', IF (time_val = \'TBD\', concat(date_format(event.event_date,\'%a %c/%e/%y\'), \' TBD\')
+// 				, date_format(concat(event.event_date, \' \', time.time_val),\'%a %c/%e/%y %l:%i %p\'))) as event_string
+//                 , IF (time_val = \'TBD\', concat(date_format(event.event_date,\'%y/%m/%d\'), \' TBD\')
+// 				, date_format(concat(event.event_date, \' \', time.time_val),\'%y/%m/%d %T\')) as event_date
+//                	, IF(responses.id is null,1,0) as rsvp_none
+//                 , IF(responses.rsvp_status = 1,1,0) as rsvp_yes
+//                 , IF(responses.rsvp_status = 0,1,0) as rsvp_no
+//                 , IF(responses.rsvp_status = -1,1,0) as rsvp_unsure' );
 
+// 		$subquery->from ( '#__sched_events event' );
+// 		$subquery->join ( 'INNER', '#__sched_event_mand_grps event_grps on event.id = event_grps.event_id' );
+// 		$subquery->join ( 'INNER', '#__user_usergroup_map users_grps on event_grps.group_id = users_grps.group_id' );
+// 		$subquery->join ( 'INNER', '#__users user on user.id = users_grps.user_id' );
+// 		$subquery->join ( 'INNER','#__sched_times time on event.event_time = time.id');
+// 		$subquery->join ( 'INNER','#__sched_event_types type on event.event_type = type.id');
+// 		$subquery->join ( 'LEFT OUTER', '#__sched_responses responses on (responses.rsvp_user = user.id and responses.rsvp_event = event.id)' );
+// 		$subquery->where( 'user.block = 0');
+// 		//Filter on only events with a response
+// 		switch ($cmpl) {
+// 			case "OUTSTANDING": $subquery->where( ' (responses.id is null OR (rsvp_active=1 and rsvp_status=-1)) ');  break;
+// 			case "ALL": $subquery->where( ' (rsvp_active =1 or rsvp_active is null) ');  break;
+// 			case "NO": $subquery->where( ' (rsvp_status=0 and rsvp_active=1) ');  break;
+// 			default: $subquery->where( ' (rsvp_active =1 or rsvp_active is null) ');  break;
+// 		}
+
+
+// 		//Filter on Event Month
+// 		switch ($event_month) {
+// 			case null: break;
+// 			case "ALL": break;
+// 			default: $subquery->where( ' date_format(event_date,\'%Y-%m\') = \'' . $event_month . '\''); break;
+// 		}
+// // 		echo str_replace('_id', '.id', $group_type_filter)) . '='. $group_val_filter;
+// 		//Filter on Group Value
+// 		if($group_type_filter !=''){
+// 				$subquery->select( $group_type_filter . '.id as filtered_val');
+// 				$subquery->where( ' '.$group_type_filter .'.id = \''.$group_val_filter.'\'');
+// 				}
+// 		else{
+
+// 				$subquery->select( '0 as filtered_val');
+// 		}
+// // if (!($group_type_filter=='')){
+// // 	$subquery->select( str_replace('_id', '.name', $group_type_filter) . ' as filtered_val');
+// // 	$subquery->where ( str_replace('_id', '.id', $group_type_filter) . '='. $group_val_filter);
+// // }
+// 		return true;
+
+// 	}
+
+	public function populateSubQuery(&$subquery, $event_month){
+		$subquery->select ( 'distinct event.id as event_id, user.id as user_id, CONCAT(event.id, \'_\', user.id) as event_user');
 		$subquery->from ( '#__sched_events event' );
 		$subquery->join ( 'INNER', '#__sched_event_mand_grps event_grps on event.id = event_grps.event_id' );
 		$subquery->join ( 'INNER', '#__user_usergroup_map users_grps on event_grps.group_id = users_grps.group_id' );
 		$subquery->join ( 'INNER', '#__users user on user.id = users_grps.user_id' );
-		$subquery->join ( 'INNER','#__sched_locations loc on event.event_location = loc.id');
-		$subquery->join ( 'INNER','#__sched_times time on event.event_time = time.id');
-		$subquery->join ( 'INNER','#__sched_event_types type on event.event_type = type.id');
-		$subquery->join ( 'LEFT OUTER', '#__sched_responses responses on (responses.rsvp_user = user.id and responses.rsvp_event = event.id)' );
-		$subquery->where( 'user.block = 0');
-		//Filter on only events with a response
-		switch ($cmpl) {
-			case "OUTSTANDING": $subquery->where( ' (responses.id is null OR (rsvp_active=1 and rsvp_status=-1)) ');  break;
-			case "ALL": $subquery->where( ' (rsvp_active =1 or rsvp_active is null) ');  break;
-			case "NO": $subquery->where( ' (rsvp_status=0 and rsvp_active=1) ');  break;
-			default: $subquery->where( ' (rsvp_active =1 or rsvp_active is null) ');  break;
-		}
-
-
-		//Filter on Event Month
 		switch ($event_month) {
 			case null: break;
 			case "ALL": break;
-			default: $subquery->where( ' date_format(event_date,\'%Y-%m\') = \'' . $event_month . '\''); break;
+			default: $newquery->where( ' date_format(event_date,\'%Y-%m\') = \'' . $event_month . '\''); break;
 		}
-// 		echo str_replace('_id', '.id', $group_type_filter)) . '='. $group_val_filter;
-		//Filter on Group Value
-		if($group_type_filter !=''){
-				$subquery->select( $group_type_filter . '.id as filtered_val');
-				$subquery->where( ' '.$group_type_filter .'.id = \''.$group_val_filter.'\'');
-				}
-		else{
 
-				$subquery->select( '0 as filtered_val');
+		$subquery->where( ' user.block = 0 ');
+	}
+	public function populateQuery(&$query, $group_by, $group_type_filter, $cmpl) {
+		$query->select ( 'Count(event_id) as total_events
+				, SUM(IF(responses.id is null,1,0)) as rsvp_none
+				, SUM(IF(responses.rsvp_status = 1,1,0)) as rsvp_yes
+				, SUM(IF(responses.rsvp_status = 0,1,0)) as rsvp_no
+				, SUM(IF(responses.rsvp_status = -1,1,0)) as rsvp_unsure'
+		);
+
+		$query->join ( 'LEFT OUTER', '#__sched_responses responses on (responses.event_user = subQ.event_user)' );
+
+		switch ($cmpl) {
+			case "OUTSTANDING": $query->where( ' (responses.id is null OR (rsvp_active=1 and rsvp_status=-1)) ');  break;
+			case "ALL": $query->where( ' (rsvp_active =1 or rsvp_active is null) ');  break;
+			case "NO": $query->where( ' (rsvp_status=0 and rsvp_active=1) ');  break;
+			default: $query->where( ' (rsvp_active =1 or rsvp_active is null) ');  break;
 		}
-// if (!($group_type_filter=='')){
-// 	$subquery->select( str_replace('_id', '.name', $group_type_filter) . ' as filtered_val');
-// 	$subquery->where ( str_replace('_id', '.id', $group_type_filter) . '='. $group_val_filter);
-// }
+
+
+		switch ($group_by) {
+			case 'user_id' :
+				$query->select('user.name as group_val
+						, user.id as group_id
+						, user.name as group_order
+						, \'user\' as group_type
+						, \'User Name\' as group_type_eng' );
+				$query->group('user.name');
+				$query->group('user.id');
+				$query->join ( 'INNER', '#__users user on user.id = subQ.user_id' );
+				break;
+			case 'event_date' :
+				$query->select('concat(event_type_name, \' \', IF (time_val = \'TBD\', concat(date_format(event.event_date,\'%a %c/%e/%y\'), \' TBD\')
+				, date_format(concat(event.event_date, \' \', time.time_val),\'%a %c/%e/%y %l:%i %p\'))) as group_val
+				, event.id as group_id
+				, IF (time_val = \'TBD\', concat(date_format(event.event_date,\'%y/%m/%d\'), \' TBD\')
+						, date_format(concat(event.event_date, \' \', time.time_val),\'%y/%m/%d %T\')) as group_order
+				, \'event\' as group_type
+				, \'Event Date\' as group_type_eng' );
+				$query->group('event_date');
+				$query->group('event_name');
+				$query->group('event_id');
+				$query->join ( 'INNER', '#__sched_events event on event.id = subQ.event_id' );
+				$query->join ( 'INNER', '#__sched_times time on time.id = event.event_time' );
+				$query->join ( 'INNER', '#__sched_event_types event_type on event_type.id = event.event_type' );
+				break;
+			default :
+				$query->select('user.name as group_val
+						, user.id as group_id
+						, user.name as group_order
+						, \'user\' as group_type
+						, \'User Name\' as group_type_eng' );
+				$query->group('user.name');
+				$query->group('user.id');
+				$this->setState ( 'list.groupby', 'user_id' );
+				$query->join ( 'INNER', '#__users user on user.id = subQ.user_id' );
+				break;
+		}
 		return true;
-
 	}
 }

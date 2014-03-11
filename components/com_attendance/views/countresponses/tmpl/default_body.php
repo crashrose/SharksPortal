@@ -2,13 +2,17 @@
 // No direct access to this file
 defined ( '_JEXEC' ) or die ( 'Restricted Access' );
 
+
+
 foreach ( $this->items as $i => $item ) :
-	?>
-		<?php
+$record_or_total = $this->groupby==''||$this->groupby=='user_id'?$item->total_events:
+		'<a href="' . JRoute::_('index.php?option=com_attendance&view=RecordAttendance&event_id='.$item->group_id).'">'
+		.'Record </a>';
+
 		$item_display =
 //		 $item->group_type == 'event_date'?
-//		date("D. M j, Y",strtotime($item->group_name)) 
-//		: 
+//		date("D. M j, Y",strtotime($item->group_name))
+//		:
 		$item->group_val;
 		 ?>
 <tr class="attrow<?php echo $i % 2; ?>">
@@ -34,7 +38,10 @@ foreach ( $this->items as $i => $item ) :
 	</td>
 <!-- 	RSVP Total Events -->
 	<td>
-		<?php echo $item->total_events;?>
+		<?php
+		echo $this->groupby==''||$this->groupby=='user_id'?$item->total_events:
+		'<a href="' . JRoute::_('index.php?option=com_attendance&view=RecordAttendance&event_id='.$item->group_id).'">'
+		.'Record'; ?></a>
 	</td>
 </tr>
 <?php endforeach; ?>

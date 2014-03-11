@@ -13,7 +13,7 @@ jimport('joomla.form.helper');
  * @subpackage com_attendance
  */
 class attendanceHelper {
-	public static function yes_no_box($i, $id, $status, $disabled) {
+	public static function RSVP_yes_no_box($i, $id, $status, $disabled) {
 		$yes_class = $disabled == '' ? ' class="att_yes_radio" ' : '';
 		$clear_link = $disabled == '' ? '<a href="javascript:void(0);" onclick="' . AttendanceHelper::clear_response($status, $id) . '">Clear</a>' : '';
 		$yes_checked = "";
@@ -44,6 +44,35 @@ class attendanceHelper {
 				 '<BR>' . $clear_link);
 		$lines = implode("\n", $lines);
 		$lines = $disabled ? $lines . '<input type="hidden" name="rsvp_status[]" default=' . $status . ' value="' . $status . '" />' : $lines;
+		return $lines;
+	}
+	public static function Att_yes_no_box($i, $id, $status) {
+		$yes_checked = "";
+		$no_checked = "";
+		$unsure_checked = "";
+		switch ($status) {
+			case null :
+				$unknown_checked = " checked ";
+				break;
+			case 0 :
+				$no_checked = " checked ";
+				break;
+			case 1 :
+				$yes_checked = " checked ";
+				break;
+			case -1 :
+				$unknown_checked = " checked ";
+				break;
+			default :
+				$unknown_checked = " checked ";
+				break;
+		}
+		$lines = array('<input class="att_yes_radio" name="att_status[' . $i . ']"' . $yes_checked . ' type="radio" id="status_' . $id . '_Y" value="1">Yes',
+				'</td><td><input class="att_no_radio" name="att_status[' . $i . ']"' . $no_checked . ' type="radio" id="status_' . $id . '_N" value="0">No',
+				'</td><td><input class="att_unknown_radio" name="att_status[' . $i . ']"' . $unknown_checked . ' type="radio" id="status_' . $id . '_U" value="-1">Unknown',
+				);
+		$lines = implode("\n", $lines);
+		//$lines = $disabled ? $lines . '<input type="hidden" name="rsvp_status[]" default=' . $status . ' value="' . $status . '" />' : $lines;
 		return $lines;
 	}
 

@@ -34,7 +34,7 @@ $item->has_response= $item->rsvp_status>-1?1:0;
 <!-- 	RSVP Response Status -->
 	<td rowspan="2" class="rsvp_yn rsvp_top rsvp_bottom">
 		<h3 style="padding-bottom:4px">Response:</h3>
-        <?php echo AttendanceHelper::yes_no_box ( $i, $item->id, $item->rsvp_status, $item->expired );?>
+        <?php echo AttendanceHelper::RSVP_yes_no_box ( $i, $item->id, $item->rsvp_status, $item->expired );?>
 
     </td>
 <!--     RSVP Details (Reason/Explanation) -->

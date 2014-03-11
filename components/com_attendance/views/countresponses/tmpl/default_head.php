@@ -16,10 +16,10 @@ defined('_JEXEC') or die('Restricted Access');
 
         </th>
 
-        <th colspan="4" style="font-size:.9em"> Response
+        <th colspan="4" style="font-size:.9em"> Responses
 		</th>
         <th style="font-size:.9em">
-        	Total Events
+
         </th>
 </tr>
 <tr>
@@ -42,7 +42,11 @@ defined('_JEXEC') or die('Restricted Access');
         	<?php echo JHTML::_( 'grid.sort', 'Unsure', 'rsvp_unsure', $this->sortDirection, $this->sortColumn); ?>
         </th>
         <th width="13%">
-        	<?php echo JHTML::_( 'grid.sort', 'Total', 'total_events', $this->sortDirection, $this->sortColumn); ?>
+        	<?php
+        	echo $this->groupby==''||$this->groupby=='user_id'?
+        	 JHTML::_( 'grid.sort', 'Total', 'total_events', $this->sortDirection, $this->sortColumn)
+        	 :'Record Attendance'
+        	; ?>
         </th>
 
 

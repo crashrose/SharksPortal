@@ -22,7 +22,6 @@ class attendanceViewCountResponses extends JViewLegacy
         function display($tpl = null)
         {
         	$this->items            = $this->get('Items');
-        	//$this->pagination       = $this->get('Pagination');
         	$this->state            = $this->get('State');
 
 
@@ -39,7 +38,6 @@ class attendanceViewCountResponses extends JViewLegacy
 
                 // Get data from the model
                 $items = $this->get('Items');
-                //$pagination = $this->get('Pagination');
 
                 // Check for errors.
                 if (count($errors = $this->get('Errors')))
