@@ -30,7 +30,6 @@ class attendanceModelEvent extends JModelAdmin {
 	 * @since 2.5
 	 */
 	public function getForm($data = array(), $loadData = true) {
-		// var_dump($this->_db->sql);
 		// Get the form.
 		$form = $this->loadForm ( 'com_attendance.event', 'event', array (
 				'control' => 'jform',

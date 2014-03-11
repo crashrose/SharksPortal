@@ -11,6 +11,12 @@ JHtml::_ ( 'behavior.tooltip' );
 		<ul class="adminformlist">
 			<?php foreach($this->form->getFieldset() as $field): ?>			<li><?php echo $field->label;echo $field->input;?></li>			<?php endforeach; ?> 		</ul>
 	</fieldset>
+			<?php if ($this->grouplist) :?>
+		<fieldset id="user-groups" class="adminform">
+			<legend><?php echo JText::_('COM_ATTENDANCE_EVENT_ASSIGNED_GROUPS'); ?></legend>
+			<?php echo $this->loadTemplate('groups');?>
+		</fieldset>
+		<?php endif; ?>
 	<div>
 		<input type="hidden" name="task" value="" /><?php echo JHtml::_('form.token'); ?>	</div>
 </form>
