@@ -18,6 +18,10 @@ class attendanceViewLocations extends JView {
 	function display($tpl = null) {
 		// Get data from the model
 		$items = $this->get ( 'Items' );
+		$state = $this->get('State');
+
+		$this->sortDirection = $state->get('list.direction');
+		$this->sortColumn = $state->get('list.ordering');
 		$pagination = $this->get ( 'Pagination' );
 		// Check for errors.
 		if (count ( $errors = $this->get ( 'Errors' ) )) {

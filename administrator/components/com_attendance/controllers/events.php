@@ -15,7 +15,7 @@ class attendanceControllerEvents extends JControllerAdmin {
 	 */
 	protected $view_list = 'events';
 
-	public function getModel($name = 'Events', $prefix = 'attendanceModel') {
+	public function getModel($name = 'Event', $prefix = 'attendanceModel') {
 		$model = parent::getModel ( $name, $prefix, array (
 				'ignore_request' => true
 		) );

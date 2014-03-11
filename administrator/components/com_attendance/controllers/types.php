@@ -15,7 +15,7 @@ class attendanceControllerTypes extends JControllerAdmin {
 	 */
 	protected $view_list = 'types';
 
-	public function getModel($name = 'Types', $prefix = 'attendanceModel') {
+	public function getModel($name = 'Type', $prefix = 'attendanceModel') {
 		$model = parent::getModel ( $name, $prefix, array (
 				'ignore_request' => true
 		) );

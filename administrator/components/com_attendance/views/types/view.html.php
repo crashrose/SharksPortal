@@ -19,6 +19,10 @@ class attendanceViewTypes extends JView {
 		// Get data from the model
 		$items = $this->get ( 'Items' );
 		$pagination = $this->get ( 'Pagination' );
+		$state = $this->get('State');
+
+		$this->sortDirection = $state->get('list.direction');
+		$this->sortColumn = $state->get('list.ordering');
 		// Check for errors.
 		if (count ( $errors = $this->get ( 'Errors' ) )) {
 			JError::raiseError ( 500, implode ( '<br />', $errors ) );
@@ -36,7 +40,7 @@ class attendanceViewTypes extends JView {
 	protected function addToolBar() {
 		JToolBarHelper::title ( JText::_ ( 'COM_ATTENDANCE_MANAGER_EVENT_TYPES' ) );
 		JToolBarHelper::deleteList ( '', 'types.delete' );
-		JToolBarHelper::editList ( 'types.edit' );
-		JToolBarHelper::addNew ( 'types.add' );
+		JToolBarHelper::editList ( 'type.edit' );
+		JToolBarHelper::addNew ( 'type.add' );
 	}
 }

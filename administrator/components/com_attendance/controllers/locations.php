@@ -5,7 +5,7 @@ defined ( '_JEXEC' ) or die ( 'Restricted access' );
 jimport ( 'joomla.application.component.controlleradmin' );
 
 /**
- * Events Controller
+ * Locations Controller
  */
 class attendanceControllerLocations extends JControllerAdmin {
 	protected $text_prefix = 'COM_ATTENDANCE_LOCATIONS';
@@ -15,7 +15,7 @@ class attendanceControllerLocations extends JControllerAdmin {
 	 */
 	protected $view_list = 'locations';
 
-	public function getModel($name = 'Locations', $prefix = 'attendanceModel') {
+	public function getModel($name = 'Location', $prefix = 'attendanceModel') {
 		$model = parent::getModel ( $name, $prefix, array (
 				'ignore_request' => true
 		) );

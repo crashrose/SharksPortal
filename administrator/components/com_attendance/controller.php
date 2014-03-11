@@ -17,6 +17,7 @@ class attendanceController extends JController {
 		require_once JPATH_COMPONENT . '/helpers/attendance.php';
 		// Load the submenu.
 		attendanceHelper::addSubmenu ( JRequest::getCmd ( 'view', 'events' ) );
+
 		$input = JFactory::getApplication ()->input;
 		$input->set ( 'view', $input->getCmd ( 'view', 'Events' ) );
 		// call parent behavior
